@@ -21,7 +21,7 @@ namespace LogicCircuitSimulator
 
     class InTerminal : Terminal
     {
-        public bool SimulationInputValue { get; set; }
+        public Logic SimulationInputValue { get; set; }
 
         public InTerminal()
         {
@@ -38,7 +38,7 @@ namespace LogicCircuitSimulator
 
     class OutTerminal : Terminal
     {
-        public bool SimulationResult { get; private set; }
+        public Logic SimulationResult { get; private set; }
 
         public OutTerminal()
         {

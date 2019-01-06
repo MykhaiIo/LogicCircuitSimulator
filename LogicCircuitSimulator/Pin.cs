@@ -10,9 +10,9 @@ namespace LogicCircuitSimulator
     {
         public Pin()
         {
-            State = false;
+            State = new Logic(LogicValue.UNINITIALIZED);
         }
 
-        public bool State { get; set; }
+        public Logic State { get; set; }
     }
 }

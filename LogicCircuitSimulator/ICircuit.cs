@@ -8,7 +8,6 @@ namespace LogicCircuitSimulator
 {
     using Identifier = UInt16; // identifier of element on circuit
     using Moment = UInt32; // abstract minimal time delta
-    using Logic = Boolean; // true - high level signal, false - low level signal
     using PinIndex = Byte; // Index of pin of element
     enum PinSide : Byte { INPUT, OUTPUT }; // Side of pin of element
 
