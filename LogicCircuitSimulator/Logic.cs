@@ -1,6 +1,6 @@
 ﻿namespace LogicCircuitSimulator
 {
-    enum LogicValue : byte {LOGIC_0, LOGIC_1, UNINITIALIZED};
+    enum LogicValue : byte {UNINITIALIZED, LOGIC_0, LOGIC_1};
 
     class Logic
     {
