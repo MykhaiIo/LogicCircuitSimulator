@@ -52,4 +52,31 @@ namespace LogicCircuitSimulator
             SimulationResult = input_pins[0].State;
         }
     }
+
+    abstract class Gate : Element
+    {
+        // TODO: Add methods for number of pins
+    }
+
+    class AND : Gate
+    {
+        public AND()
+        {
+            input_pins.Add(new Pin());
+            input_pins.Add(new Pin());
+            output_pins.Add(new Pin());
+            Delay = 0;
+        }
+
+        public override void Functionality()
+        {
+            Logic rv = new Logic(LogicValue.LOGIC_1);
+            foreach( Pin ip in input_pins )
+            {
+                rv &= ip.State;
+            }
+
+            output_pins[0].State = rv;
+        }
+    }
 }
