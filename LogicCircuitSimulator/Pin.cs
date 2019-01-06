@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogicCircuitSimulator
 {
+    enum PinSide : Byte { INPUT, OUTPUT };
+
     class Pin
     {
         public Pin()
