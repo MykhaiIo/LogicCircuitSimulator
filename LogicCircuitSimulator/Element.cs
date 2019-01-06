@@ -8,23 +8,35 @@ namespace LogicCircuitSimulator
 {
     abstract class Element
     {
-        public List<Pin> input_pins, output_pins;
+        protected List<Pin> input_pins, output_pins;
 
         public int Delay { get; set; }
 
         public abstract void Functionality();
 
-        byte GetNumberOfPins(PinSide side)
+        public List<Pin> GetPinsBySide(PinSide side)
         {
             switch (side)
             {
                 case PinSide.INPUT:
-                    return (byte)input_pins.Count;
+                    return input_pins;
                 case PinSide.OUTPUT:
-                    return (byte)output_pins.Count;
+                    return output_pins;
                 default:
                     throw new WrongPinSideException();
             }
+        }
+
+        public byte GetNumberOfPins(PinSide side)
+        {
+            return (byte)(GetPinsBySide(side).Count);
+        }
+
+        public Pin GetPin(PinSide side, byte pin_index)
+        {
+            if (GetNumberOfPins(side) <= pin_index)
+                throw new PinIndexOutOfRangeException("Wrong pin index");
+            return GetPinsBySide(side)[pin_index];
         }
     }
 
