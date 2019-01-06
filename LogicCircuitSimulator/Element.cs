@@ -11,7 +11,21 @@ namespace LogicCircuitSimulator
         public List<Pin> input_pins, output_pins;
 
         public int Delay { get; set; }
+
         public abstract void Functionality();
+
+        byte GetNumberOfPins(PinSide side)
+        {
+            switch (side)
+            {
+                case PinSide.INPUT:
+                    return (byte)input_pins.Count;
+                case PinSide.OUTPUT:
+                    return (byte)output_pins.Count;
+                default:
+                    throw new WrongPinSideException();
+            }
+        }
     }
 
     abstract class Terminal : Element
