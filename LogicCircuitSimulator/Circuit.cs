@@ -68,52 +68,41 @@ namespace LogicCircuitSimulator
             }
             return elem;
         }
-
-        bool HaveConnectedPins(Element element)
-        {
-            foreach (Pin in_pin in element.GetPinsBySide(PinSide.INPUT))
-            {
-                if (port_map.ContainsKey(in_pin))
-                    return true;
-            }
-            foreach (Pin out_pin in element.GetPinsBySide(PinSide.OUTPUT))
-            {
-                if (port_map.ContainsValue(out_pin))
-                    return true;
-            }
-            return false;
-        }
     
         void RemoveElement(Element element)
         {
+            if (element.HasConnectedPins())
+                throw new ElementHasConnectedPinsException();
+
             elements.Remove(element);
         }
 
         void Connect(Pin from, Pin to)
         {
+            from.ConnectedPin = to;
+            to.ConnectedPin = from;
             port_map.Add(from, to);
         }
         
         void Disconnect(Pin pin)
         {
-            if (port_map.ContainsKey(pin))
+            if (pin.ConnectedPin == null)
+                throw new AlreadyDisconnectedPinException();
+
+            pin.ConnectedPin.ConnectedPin = null;
+            pin.ConnectedPin = null;
+            if (pin.Side == PinSide.INPUT)
+            {
+                port_map.Remove(pin.ConnectedPin);
+            }
+            else if (pin.Side == PinSide.OUTPUT)
             {
                 port_map.Remove(pin);
-                return;
             }
-            if (port_map.ContainsValue(pin))
+            else
             {
-                foreach (var pair in port_map)
-                {
-                    if (Object.ReferenceEquals(pair.Value, pin))
-                    {
-                        port_map.Remove(pair.Key);
-                        return;
-                    }
-                }
-                throw new Exception("Value exists but pair not removed");
+                throw new InvalidPinSideException();
             }
-            throw new AlreadyDisconnectedPinException();
         }
     }
 }
