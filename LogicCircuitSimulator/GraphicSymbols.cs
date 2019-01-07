@@ -332,7 +332,8 @@ namespace LogicCircuitSimulator
                     return false;
             }
         }
-        
+
+      
         public static bool IsUnaryGate(Elements _type)
         {
             switch (_type)
@@ -429,6 +430,7 @@ namespace LogicCircuitSimulator
                     return false;
             }
         }
+
 
         public static  void DrawActiveLine(Graphics _g, PointF p1, PointF p2)
         {

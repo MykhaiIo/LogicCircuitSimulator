@@ -200,28 +200,13 @@ namespace LogicCircuitSimulator
                               Pin y1_in_pin, string y1_in_val,
                               Logic y1_res_real, string y1_res_exp)
             {
-                LogicValue StringToLogicValue(string str)
-                {
-                    switch (str)
-                    {
-                        case "0":
-                            return LogicValue.LOGIC_0;
-                        case "1":
-                            return LogicValue.LOGIC_1;
-                        case "U":
-                            return LogicValue.UNINITIALIZED;
-                        default:
-                            throw new ArgumentException("Invalid string equivalent of LogicValue.");
-                    }
-                }
-
-                Require.That(x1_out_pin.State.Value == StringToLogicValue(x1_out_val));
-                Require.That(x2_out_pin.State.Value == StringToLogicValue(x2_out_val));
-                Require.That(and_in0_pin.State.Value == StringToLogicValue(and_in0_val));
-                Require.That(and_in1_pin.State.Value == StringToLogicValue(and_in1_val));
-                Require.That(and_out_pin.State.Value == StringToLogicValue(and_out_val));
-                Require.That(y1_in_pin.State.Value == StringToLogicValue(y1_in_val));
-                Require.That(y1_res_real.Value == StringToLogicValue(y1_res_exp));
+                Require.That(x1_out_pin.State.Value == Logic.StringToLogicValue(x1_out_val));
+                Require.That(x2_out_pin.State.Value == Logic.StringToLogicValue(x2_out_val));
+                Require.That(and_in0_pin.State.Value == Logic.StringToLogicValue(and_in0_val));
+                Require.That(and_in1_pin.State.Value == Logic.StringToLogicValue(and_in1_val));
+                Require.That(and_out_pin.State.Value == Logic.StringToLogicValue(and_out_val));
+                Require.That(y1_in_pin.State.Value == Logic.StringToLogicValue(y1_in_val));
+                Require.That(y1_res_real.Value == Logic.StringToLogicValue(y1_res_exp));
             }
 
             Circuit cir = new Circuit();

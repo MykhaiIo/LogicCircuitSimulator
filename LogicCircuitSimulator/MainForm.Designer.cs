@@ -74,6 +74,7 @@ namespace LogicCircuitSimulator
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Mode";
+            this.label3.UseWaitCursor = false;
             // 
             // ElementsList
             // 
@@ -87,6 +88,7 @@ namespace LogicCircuitSimulator
             this.ElementsList.Name = "ElementsList";
             this.ElementsList.Size = new System.Drawing.Size(175, 43);
             this.ElementsList.TabIndex = 8;
+            this.ElementsList.UseWaitCursor = false;
             // 
             // GatesList
             // 
@@ -105,6 +107,8 @@ namespace LogicCircuitSimulator
             this.GatesList.Name = "GatesList";
             this.GatesList.Size = new System.Drawing.Size(175, 108);
             this.GatesList.TabIndex = 7;
+            this.GatesList.UseWaitCursor = false;
+
             // 
             // label1
             // 
@@ -115,6 +119,7 @@ namespace LogicCircuitSimulator
             this.label1.Size = new System.Drawing.Size(17, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "X:";
+            this.label1.UseWaitCursor = false;
             // 
             // label2
             // 
@@ -125,6 +130,7 @@ namespace LogicCircuitSimulator
             this.label2.Size = new System.Drawing.Size(17, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Y:";
+            this.label2.UseWaitCursor = false;
             // 
             // panel1
             // 
@@ -135,6 +141,7 @@ namespace LogicCircuitSimulator
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(872, 545);
             this.panel1.TabIndex = 12;
+
             // 
             // bStart
             // 
