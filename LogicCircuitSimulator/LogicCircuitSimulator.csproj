@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Circuit.cs" />
     <Compile Include="Element.cs" />
-    <Compile Include="ElementType.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Logic.cs" />
     <Compile Include="MainForm.cs">
