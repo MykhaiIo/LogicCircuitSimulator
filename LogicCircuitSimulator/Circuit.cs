@@ -86,7 +86,7 @@ namespace LogicCircuitSimulator
             }
         }
 
-        void SimulateFor(uint duration)
+        public void SimulateFor(uint duration)
         {
             for (uint i = 0; i < duration; i++)
             {
@@ -94,13 +94,13 @@ namespace LogicCircuitSimulator
             }
         }
 
-        void SimulateUntil(uint moment)
+        public void SimulateUntil(uint moment)
         {
             RestartSimulation();
             SimulateFor(moment);
         }
 
-        void SetNumberOfInputPins(MultipleInputGate gate, byte new_n_pins)
+        public void SetNumberOfInputPins(MultipleInputGate gate, byte new_n_pins)
         {
             if (new_n_pins < 2 || new_n_pins > 8)
                 throw new NumberOfPinsOutOfRangeException();
@@ -127,7 +127,7 @@ namespace LogicCircuitSimulator
             }
         }
 
-        void SetNumberOfOutputPins(FORK gate, byte new_n_pins)
+        public void SetNumberOfOutputPins(FORK gate, byte new_n_pins)
         {
             if (new_n_pins < 1 || new_n_pins > 8)
                 throw new NumberOfPinsOutOfRangeException();
