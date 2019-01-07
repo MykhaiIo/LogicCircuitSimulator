@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateGate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateGate.Designer.cs">
+      <DependentUpon>CreateGate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTerminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTerminal.Designer.cs">
+      <DependentUpon>CreateTerminal.cs</DependentUpon>
+    </Compile>
     <Compile Include="GraphicSymbols.cs" />
     <Compile Include="Circuit.cs" />
     <Compile Include="Element.cs" />
@@ -66,6 +78,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="UnitTest.cs" />
+    <EmbeddedResource Include="CreateTerminal.resx">
+      <DependentUpon>CreateTerminal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +149,10 @@
     <Content Include="Resources\BUF.png" />
     <Content Include="Resources\Fork3.png" />
     <Content Include="Resources\Fork4.png" />
+    <None Include="Resources\remove-symbol.png" />
+    <None Include="Resources\iconfinder_play_3706872.png" />
+    <None Include="Resources\iconfinder_refresh_134221.png" />
+    <None Include="Resources\iconfinder_stop_227556.png" />
     <Content Include="Resources\ITerminal.png" />
     <Content Include="Resources\INV.png" />
     <None Include="Resources\logic-512.ico" />
