@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GraphicSymbols.cs" />
     <Compile Include="Circuit.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Exceptions.cs" />
@@ -59,19 +60,20 @@
     <Compile Include="Pin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UnitTest.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -84,6 +86,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\2AND.png" />
+    <Content Include="Resources\2NAND.png" />
+    <Content Include="Resources\2NOR.png" />
+    <Content Include="Resources\2OR.png" />
+    <Content Include="Resources\2XNOR.png" />
+    <Content Include="Resources\2XOR.png" />
+    <Content Include="Resources\3AND.png" />
+    <Content Include="Resources\3NAND.png" />
+    <Content Include="Resources\3NOR.png" />
+    <Content Include="Resources\3OR.png" />
+    <Content Include="Resources\3XNOR.png" />
+    <Content Include="Resources\3XOR.png" />
+    <Content Include="Resources\4AND.png" />
+    <Content Include="Resources\4NAND.png" />
+    <Content Include="Resources\4NOR.png" />
+    <Content Include="Resources\4OR.png" />
+    <Content Include="Resources\4XNOR.png" />
+    <Content Include="Resources\4XOR.png" />
+    <Content Include="Resources\5AND.png" />
+    <Content Include="Resources\5NAND.png" />
+    <Content Include="Resources\5NOR.png" />
+    <Content Include="Resources\5OR.png" />
+    <Content Include="Resources\5XNOR.png" />
+    <Content Include="Resources\5XOR.png" />
+    <Content Include="Resources\6AND.png" />
+    <Content Include="Resources\6NAND.png" />
+    <Content Include="Resources\6NOR.png" />
+    <Content Include="Resources\6OR.png" />
+    <Content Include="Resources\6XNOR.png" />
+    <Content Include="Resources\6XOR.png" />
+    <Content Include="Resources\7AND.png" />
+    <Content Include="Resources\7NAND.png" />
+    <Content Include="Resources\7NOR.png" />
+    <Content Include="Resources\7OR.png" />
+    <Content Include="Resources\7XNOR.png" />
+    <Content Include="Resources\7XOR.png" />
+    <Content Include="Resources\8AND.png" />
+    <Content Include="Resources\8NAND.png" />
+    <Content Include="Resources\8NOR.png" />
+    <Content Include="Resources\8OR.png" />
+    <Content Include="Resources\8XNOR.png" />
+    <Content Include="Resources\8XOR.png" />
+    <Content Include="Resources\BUF.png" />
+    <Content Include="Resources\Fork3.png" />
+    <Content Include="Resources\Fork4.png" />
+    <Content Include="Resources\ITerminal.png" />
+    <Content Include="Resources\INV.png" />
+    <Content Include="Resources\OTerminal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
