@@ -86,7 +86,7 @@ namespace LogicCircuitSimulator
             }
         }
 
-        void SimulateFor(uint duration)
+        public void SimulateFor(uint duration)
         {
             for (uint i = 0; i < duration; i++)
             {
@@ -94,10 +94,64 @@ namespace LogicCircuitSimulator
             }
         }
 
-        void SimulateUntil(uint moment)
+        public void SimulateUntil(uint moment)
         {
             RestartSimulation();
             SimulateFor(moment);
-        }  
+        }
+
+        public void SetNumberOfInputPins(MultipleInputGate gate, byte new_n_pins)
+        {
+            if (new_n_pins < 2 || new_n_pins > 8)
+                throw new NumberOfPinsOutOfRangeException();
+
+            List<Pin> in_pins = gate.GetPinsBySide(PinSide.INPUT);
+            byte cur_n_pins = (byte)in_pins.Count;
+
+            if (new_n_pins < cur_n_pins)
+            {
+                // Disconnect pins which will be removed
+                for (var pin_idx = new_n_pins; pin_idx < cur_n_pins; pin_idx++)
+                {
+                    Pin cur_pin = in_pins[pin_idx];
+                    if (cur_pin.ConnectedPin != null)
+                        Disconnect(cur_pin);
+                }
+
+                // Remove pins
+                gate.RemoveInputPins((byte)(cur_n_pins - new_n_pins));
+            }
+            else if (new_n_pins > cur_n_pins)
+            {
+                gate.AddInputPins((byte)(new_n_pins - cur_n_pins));
+            }
+        }
+
+        public void SetNumberOfOutputPins(FORK gate, byte new_n_pins)
+        {
+            if (new_n_pins < 1 || new_n_pins > 8)
+                throw new NumberOfPinsOutOfRangeException();
+
+            List<Pin> out_pins = gate.GetPinsBySide(PinSide.OUTPUT);
+            byte cur_n_pins = (byte)out_pins.Count;
+
+            if (new_n_pins < cur_n_pins)
+            {
+                // Disconnect pins which will be removed
+                for (var pin_idx = new_n_pins; pin_idx < cur_n_pins; pin_idx++)
+                {
+                    Pin cur_pin = out_pins[pin_idx];
+                    if (cur_pin.ConnectedPin != null)
+                        Disconnect(cur_pin);
+                }
+
+                // Remove pins
+                gate.RemoveOutputPins((byte)(cur_n_pins - new_n_pins));
+            }
+            else if (new_n_pins > cur_n_pins)
+            {
+                gate.AddOutputPins((byte)(new_n_pins - cur_n_pins));
+            }
+        }
     }
 }
