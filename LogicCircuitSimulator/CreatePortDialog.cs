@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LogicCircuitSimulator
 {
-    public partial class CreateTerminal : Form
+    public partial class CreatePortDialog : Form
     {
-        public CreateTerminal()
+        public CreatePortDialog()
         {
             InitializeComponent();
         }

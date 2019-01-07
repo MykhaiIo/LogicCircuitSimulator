@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace LogicCircuitSimulator
 {
-    public partial class CreateGate : Form
+    public partial class CreateGateDialog : Form
     {
-        public CreateGate()
+        public CreateGateDialog()
         {
             InitializeComponent();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

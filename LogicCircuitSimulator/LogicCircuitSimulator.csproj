@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateGate.cs">
+    <Compile Include="CreateGateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateGate.Designer.cs">
-      <DependentUpon>CreateGate.cs</DependentUpon>
+    <Compile Include="CreateGateDialog.Designer.cs">
+      <DependentUpon>CreateGateDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateTerminal.cs">
+    <Compile Include="CreatePortDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateTerminal.Designer.cs">
-      <DependentUpon>CreateTerminal.cs</DependentUpon>
+    <Compile Include="CreatePortDialog.Designer.cs">
+      <DependentUpon>CreatePortDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="GraphicSymbols.cs" />
     <Compile Include="Circuit.cs" />
@@ -78,8 +78,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="UnitTest.cs" />
-    <EmbeddedResource Include="CreateTerminal.resx">
-      <DependentUpon>CreateTerminal.cs</DependentUpon>
+    <EmbeddedResource Include="CreateGateDialog.resx">
+      <DependentUpon>CreateGateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePortDialog.resx">
+      <DependentUpon>CreatePortDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
