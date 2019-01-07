@@ -92,6 +92,21 @@
                     throw new System.NotImplementedException();
             }
         }
+
+        static public LogicValue StringToLogicValue(string str)
+        {
+            switch (str)
+            {
+                case "0":
+                    return LogicValue.LOGIC_0;
+                case "1":
+                    return LogicValue.LOGIC_1;
+                case "U":
+                    return LogicValue.UNINITIALIZED;
+                default:
+                    throw new System.ArgumentException("Invalid string equivalent of LogicValue.");
+            }
+        }
     }
 
     

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LogicCircuitSimulator
 {
@@ -89,5 +85,19 @@ namespace LogicCircuitSimulator
                 connection.Value.State = connection.Key.State;
             }
         }
+
+        void SimulateFor(uint duration)
+        {
+            for (uint i = 0; i < duration; i++)
+            {
+                NextMoment();
+            }
+        }
+
+        void SimulateUntil(uint moment)
+        {
+            RestartSimulation();
+            SimulateFor(moment);
+        }  
     }
 }
