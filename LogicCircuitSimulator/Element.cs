@@ -114,6 +114,13 @@ namespace LogicCircuitSimulator
             output_pins.Add(new Pin(PinSide.OUTPUT));
             Delay = 0;
         }
+    }
+
+    abstract class MultipleInputGate : Gate
+    {
+        protected MultipleInputGate()
+            : base()
+        { }
 
         protected void Initialize2to1AsynchGate()
         {
@@ -121,16 +128,52 @@ namespace LogicCircuitSimulator
             input_pins.Add(new Pin(PinSide.INPUT));
         }
 
+        public void AddInputPins(byte n_pins)
+        {
+            if (input_pins.Count + n_pins > 8)
+                throw new NumberOfPinsOutOfRangeException();
+
+            for (byte i = 0; i < n_pins; i++)
+            {
+                input_pins.Add(new Pin(PinSide.INPUT));
+            }
+        }
+
+        public void RemoveInputPins(byte n_pins)
+        {
+            byte size = (byte)input_pins.Count;
+            if (size - n_pins < 2)
+                throw new NumberOfPinsOutOfRangeException();
+
+            // Check whether pins which will be removed are not connected
+            for (byte pin_idx = (byte)(size - 1); pin_idx > size - n_pins - 1; pin_idx--)
+            {
+                if (input_pins[pin_idx].ConnectedPin != null)
+                    throw new ConnectedPinException();
+            }
+
+            // Remove of pins
+            for (byte pin_idx = (byte)(size - 1); pin_idx > size - n_pins - 1; pin_idx--)
+            {
+                input_pins.Remove(input_pins[pin_idx]);
+            }
+        }
+    }
+
+    abstract class SingleInputGate : Gate
+    {
+        protected SingleInputGate()
+            : base()
+        { }
+
         protected void Initialize1to2AsynchGate()
         {
             Initialize1to1AsynchGate();
             output_pins.Add(new Pin(PinSide.OUTPUT));
         }
-
-        // TODO: Add methods for number of pins
     }
 
-    class AND : Gate
+    class AND : MultipleInputGate
     {
         public AND()
             : base()
@@ -150,7 +193,7 @@ namespace LogicCircuitSimulator
         }
     }
 
-    class NAND : Gate
+    class NAND : MultipleInputGate
     {
         public NAND()
             : base()
@@ -170,7 +213,7 @@ namespace LogicCircuitSimulator
         }
     }
 
-    class OR : Gate
+    class OR : MultipleInputGate
     {
         public OR()
             : base()
@@ -190,7 +233,7 @@ namespace LogicCircuitSimulator
         }
     }
 
-    class NOR : Gate
+    class NOR : MultipleInputGate
     {
         public NOR()
             : base()
@@ -210,7 +253,7 @@ namespace LogicCircuitSimulator
         }
     }
 
-    class XOR : Gate
+    class XOR : MultipleInputGate
     {
         public XOR()
             : base()
@@ -230,7 +273,7 @@ namespace LogicCircuitSimulator
         }
     }
 
-    class XNOR : Gate
+    class XNOR : MultipleInputGate
     {
         public XNOR()
             : base()
@@ -250,7 +293,7 @@ namespace LogicCircuitSimulator
         }
     }
 
-    class NOT : Gate
+    class NOT : SingleInputGate
     {
         public NOT()
             : base()
@@ -264,9 +307,9 @@ namespace LogicCircuitSimulator
         }
     }
 
-    class BUFF : Gate
+    class FORK : SingleInputGate
     {
-        public BUFF()
+        public FORK()
             : base()
         {
             Initialize1to2AsynchGate();
@@ -277,6 +320,37 @@ namespace LogicCircuitSimulator
             foreach (Pin op in output_pins)
             {
                 op.State = input_pins[0].State;
+            }
+        }
+
+        public void AddOutputPins(byte n_pins)
+        {
+            if (output_pins.Count + n_pins > 8)
+                throw new NumberOfPinsOutOfRangeException();
+
+            for (byte i = 0; i < n_pins; i++)
+            {
+                output_pins.Add(new Pin(PinSide.OUTPUT));
+            }
+        }
+
+        public void RemoveOutputPins(byte n_pins)
+        {
+            byte size = (byte)output_pins.Count;
+            if (size - n_pins < 1)
+                throw new NumberOfPinsOutOfRangeException();
+
+            // Check whether pins which will be removed are not connected
+            for (byte pin_idx = (byte)(size - 1); pin_idx > size - n_pins - 1; pin_idx--)
+            {
+                if (output_pins[pin_idx].ConnectedPin != null)
+                    throw new ConnectedPinException();
+            }
+
+            // Remove of pins
+            for (byte pin_idx = (byte)(size - 1); pin_idx > size - n_pins - 1; pin_idx--)
+            {
+                output_pins.Remove(output_pins[pin_idx]);
             }
         }
     }

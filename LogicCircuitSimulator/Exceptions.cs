@@ -22,6 +22,17 @@
         { }
     }
 
+    class NumberOfPinsOutOfRangeException : System.Exception
+    {
+        public NumberOfPinsOutOfRangeException()
+            : base()
+        { }
+
+        public NumberOfPinsOutOfRangeException(string message)
+            : base(message)
+        { }
+    }
+
     class AlreadyDisconnectedPinException : System.Exception
     {
         public AlreadyDisconnectedPinException()
@@ -40,6 +51,17 @@
         { }
 
         public ElementHasConnectedPinsException(string message)
+            : base(message)
+        { }
+    }
+
+    class ConnectedPinException : System.Exception
+    {
+        public ConnectedPinException()
+            : base()
+        { }
+
+        public ConnectedPinException(string message)
             : base(message)
         { }
     }
