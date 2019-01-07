@@ -23,6 +23,7 @@ namespace LogicCircuitSimulator
             UnitTest.TestCase_2OR();
             UnitTest.TestCase_2XOR();
             UnitTest.TestCase_NOT();
+            UnitTest.TestCase_AndGateSimulation();
         }
     }
 }
