@@ -1,22 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogicCircuitSimulator
 {
     abstract class Element
     {
-        public List<Pin> input_pins, output_pins;
+        protected List<Pin> input_pins, output_pins;
+
+        protected Element()
+        {
+            input_pins = new List<Pin>();
+            output_pins = new List<Pin>();
+        }
 
         public int Delay { get; set; }
+
         public abstract void Functionality();
+
+        public List<Pin> GetPinsBySide(PinSide side)
+        {
+            switch (side)
+            {
+                case PinSide.INPUT:
+                    return input_pins;
+                case PinSide.OUTPUT:
+                    return output_pins;
+                default:
+                    throw new InvalidPinSideException();
+            }
+        }
+
+        public byte GetNumberOfPins(PinSide side)
+        {
+            return (byte)(GetPinsBySide(side).Count);
+        }
+
+        public Pin GetPin(PinSide side, byte pin_index)
+        {
+            if (GetNumberOfPins(side) <= pin_index)
+                throw new PinIndexOutOfRangeException("Wrong pin index");
+            return GetPinsBySide(side)[pin_index];
+        }
+
+        public bool HasConnectedPins()
+        {
+            foreach (Pin in_pin in input_pins)
+            {
+                if (in_pin.ConnectedPin != null)
+                    return true;
+            }
+            foreach (Pin out_pin in output_pins)
+            {
+                if (out_pin.ConnectedPin != null)
+                    return true;
+            }
+            return false;
+        }
     }
 
     abstract class Terminal : Element
     {
-        
+        protected Terminal()
+            : base()
+        { }
     }
 
     class InTerminal : Terminal
@@ -24,9 +70,10 @@ namespace LogicCircuitSimulator
         public Logic SimulationInputValue { get; set; }
 
         public InTerminal()
+            : base()
         {
             input_pins.Clear();
-            output_pins.Add(new Pin());
+            output_pins.Add(new Pin(PinSide.OUTPUT));
             Delay = 0;
         }
 
@@ -41,10 +88,12 @@ namespace LogicCircuitSimulator
         public Logic SimulationResult { get; private set; }
 
         public OutTerminal()
+            : base()
         {
-            input_pins.Add(new Pin());
+            input_pins.Add(new Pin(PinSide.INPUT));
             output_pins.Clear();
             Delay = 0;
+            SimulationResult = new Logic(LogicValue.UNINITIALIZED);
         }
 
         public override void Functionality()
@@ -55,23 +104,27 @@ namespace LogicCircuitSimulator
 
     abstract class Gate : Element
     {
+        protected Gate()
+            : base()
+        { }
+
         protected void Initialize1to1AsynchGate()
         {
-            input_pins.Add(new Pin());
-            output_pins.Add(new Pin());
+            input_pins.Add(new Pin(PinSide.INPUT));
+            output_pins.Add(new Pin(PinSide.OUTPUT));
             Delay = 0;
         }
 
         protected void Initialize2to1AsynchGate()
         {
             Initialize1to1AsynchGate();
-            input_pins.Add(new Pin());
+            input_pins.Add(new Pin(PinSide.INPUT));
         }
 
         protected void Initialize1to2AsynchGate()
         {
             Initialize1to1AsynchGate();
-            output_pins.Add(new Pin());
+            output_pins.Add(new Pin(PinSide.OUTPUT));
         }
 
         // TODO: Add methods for number of pins
@@ -80,6 +133,7 @@ namespace LogicCircuitSimulator
     class AND : Gate
     {
         public AND()
+            : base()
         {
             Initialize2to1AsynchGate();
         }
@@ -99,6 +153,7 @@ namespace LogicCircuitSimulator
     class NAND : Gate
     {
         public NAND()
+            : base()
         {
             Initialize2to1AsynchGate();
         }
@@ -118,6 +173,7 @@ namespace LogicCircuitSimulator
     class OR : Gate
     {
         public OR()
+            : base()
         {
             Initialize2to1AsynchGate();
         }
@@ -137,6 +193,7 @@ namespace LogicCircuitSimulator
     class NOR : Gate
     {
         public NOR()
+            : base()
         {
             Initialize2to1AsynchGate();
         }
@@ -156,6 +213,7 @@ namespace LogicCircuitSimulator
     class XOR : Gate
     {
         public XOR()
+            : base()
         {
             Initialize2to1AsynchGate();
         }
@@ -175,6 +233,7 @@ namespace LogicCircuitSimulator
     class XNOR : Gate
     {
         public XNOR()
+            : base()
         {
             Initialize2to1AsynchGate();
         }
@@ -194,6 +253,7 @@ namespace LogicCircuitSimulator
     class NOT : Gate
     {
         public NOT()
+            : base()
         {
             Initialize1to1AsynchGate();
         }
@@ -207,6 +267,7 @@ namespace LogicCircuitSimulator
     class BUFF : Gate
     {
         public BUFF()
+            : base()
         {
             Initialize1to2AsynchGate();
         }

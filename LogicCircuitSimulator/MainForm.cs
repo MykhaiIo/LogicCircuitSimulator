@@ -16,5 +16,14 @@ namespace LogicCircuitSimulator
         {
             InitializeComponent();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            UnitTest.TestCase_2AND();
+            UnitTest.TestCase_2OR();
+            UnitTest.TestCase_2XOR();
+            UnitTest.TestCase_NOT();
+            UnitTest.TestCase_AndGateSimulation();
+        }
     }
 }
