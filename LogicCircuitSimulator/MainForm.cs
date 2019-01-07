@@ -25,20 +25,7 @@ namespace LogicCircuitSimulator
             UnitTest.TestCase_NOT();
             UnitTest.TestCase_AndGateSimulation();
         }
-        private void DrawActiveLine(Graphics _g, PointF p1, PointF p2)
-        {
-            _g.DrawLine(Pens.Red, p1, p2);
-        }
 
-        private void DrawInactiveLine(Graphics _g, PointF p1, PointF p2)
-        {
-            _g.DrawLine(Pens.Black, p1, p2);
-        }
-
-        private void Draw2AND(Graphics _g, PointF p1, PointF p2)
-        {
-            Image img = new Bitmap("C:\\Users\\Michel\\Documents\\NURE\\PS\\LogicCircuitSimulator\\LogicCircuitSimulator\\Resources\\2AND.png");
-        }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
