@@ -11,65 +11,18 @@ namespace LogicCircuitSimulator
         private List<Element> elements;
         private Dictionary<Pin, Pin> port_map;
 
-        Circuit()
+        public Circuit()
         {
             elements = new List<Element>();
             port_map = new Dictionary<Pin, Pin>();
         }
 
-        Element AddElement(ElementType type)
+        public void AddElement(Element element)
         {
-            Element elem;
-            switch (type)
-            {
-                
-                case ElementType.AND:
-                    {
-                        elem = new AND();
-                        break;
-                    }
-                case ElementType.NAND:
-                    {
-                        elem = new NAND();
-                        break;
-                    }
-                case ElementType.OR:
-                    {
-                        elem = new OR();
-                        break;
-                    }
-                case ElementType.NOR:
-                    {
-                        elem = new NOR();
-                        break;
-                    }
-                case ElementType.XOR:
-                    {
-                        elem = new XOR();
-                        break;
-                    }
-                case ElementType.XNOR:
-                    {
-                        elem = new XNOR();
-                        break;
-                    }
-                case ElementType.NOT:
-                    {
-                        elem = new NOT();
-                        break;
-                    }
-                case ElementType.BUFF:
-                    {
-                        elem = new BUFF();
-                        break;
-                    }
-                default:
-                    throw new NotImplementedException("Not implemented element type");
-            }
-            return elem;
+            elements.Add(element);
         }
     
-        void RemoveElement(Element element)
+        public void RemoveElement(Element element)
         {
             if (element.HasConnectedPins())
                 throw new ElementHasConnectedPinsException();
@@ -77,14 +30,19 @@ namespace LogicCircuitSimulator
             elements.Remove(element);
         }
 
-        void Connect(Pin from, Pin to)
+        public void Connect(Pin from, Pin to)
         {
+            if (from.Side != PinSide.OUTPUT)
+                throw new InvalidPinSideException();
+            if (to.Side != PinSide.INPUT)
+                throw new InvalidPinSideException();
+
             from.ConnectedPin = to;
             to.ConnectedPin = from;
             port_map.Add(from, to);
         }
         
-        void Disconnect(Pin pin)
+        public void Disconnect(Pin pin)
         {
             if (pin.ConnectedPin == null)
                 throw new AlreadyDisconnectedPinException();
@@ -102,6 +60,33 @@ namespace LogicCircuitSimulator
             else
             {
                 throw new InvalidPinSideException();
+            }
+        }
+
+        public void RestartSimulation()
+        {
+            foreach (var element in elements)
+            {
+                foreach (var in_pin in element.GetPinsBySide(PinSide.INPUT))
+                {
+                    in_pin.State = new Logic(LogicValue.UNINITIALIZED);
+                }
+                foreach (var out_pin in element.GetPinsBySide(PinSide.OUTPUT))
+                {
+                    out_pin.State = new Logic(LogicValue.UNINITIALIZED);
+                }
+            }
+        }
+
+        public void NextMoment()
+        {
+            foreach (var elem in elements)
+            {
+                elem.Functionality();
+            }
+            foreach(var connection in port_map)
+            {
+                connection.Value.State = connection.Key.State;
             }
         }
     }
