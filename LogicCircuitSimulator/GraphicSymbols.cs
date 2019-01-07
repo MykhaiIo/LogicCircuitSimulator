@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace LogicCircuitSimulator
 {
@@ -106,6 +108,170 @@ namespace LogicCircuitSimulator
 
         public static PointF TOCoordinates1 { get; } = new PointF(0, 2.5f);
 
+        public static Bitmap GetImage(Elements _type)
+        {
+            switch (_type)
+            {
+                case Elements.BUF:
+                    return LogicCircuitSimulator.Properties.Resources.BUF;
+
+                case Elements.INV:
+                    return LogicCircuitSimulator.Properties.Resources.INV;
+
+
+                case Elements.AND2:
+                    return LogicCircuitSimulator.Properties.Resources._2AND;
+
+                case Elements.AND3:
+                    return LogicCircuitSimulator.Properties.Resources._3AND;
+
+                case Elements.AND4:
+                    return LogicCircuitSimulator.Properties.Resources._4AND;
+
+                case Elements.AND5:
+                    return LogicCircuitSimulator.Properties.Resources._5AND;
+
+                case Elements.AND6:
+                    return LogicCircuitSimulator.Properties.Resources._6AND;
+
+                case Elements.AND7:
+                    return LogicCircuitSimulator.Properties.Resources._7AND;
+
+                case Elements.AND8:
+                    return LogicCircuitSimulator.Properties.Resources._8AND;
+
+
+                case Elements.NAND2:
+                    return LogicCircuitSimulator.Properties.Resources._2NAND;
+
+                case Elements.NAND3:
+                    return LogicCircuitSimulator.Properties.Resources._3NAND;
+
+                case Elements.NAND4:
+                    return LogicCircuitSimulator.Properties.Resources._4NAND;
+
+                case Elements.NAND5:
+                    return LogicCircuitSimulator.Properties.Resources._5NAND;
+
+                case Elements.NAND6:
+                    return LogicCircuitSimulator.Properties.Resources._6NAND;
+
+                case Elements.NAND7:
+                    return LogicCircuitSimulator.Properties.Resources._7NAND;
+
+                case Elements.NAND8:
+                    return LogicCircuitSimulator.Properties.Resources._8NAND;
+
+
+                case Elements.OR2:
+                    return LogicCircuitSimulator.Properties.Resources._2OR;
+
+                case Elements.OR3:
+                    return LogicCircuitSimulator.Properties.Resources._3OR;
+
+                case Elements.OR4:
+                    return LogicCircuitSimulator.Properties.Resources._4OR;
+
+                case Elements.OR5:
+                    return LogicCircuitSimulator.Properties.Resources._5OR;
+
+                case Elements.OR6:
+                    return LogicCircuitSimulator.Properties.Resources._6OR;
+
+                case Elements.OR7:
+                    return LogicCircuitSimulator.Properties.Resources._7OR;
+
+                case Elements.OR8:
+                    return LogicCircuitSimulator.Properties.Resources._8OR;
+
+
+                case Elements.NOR2:
+                    return LogicCircuitSimulator.Properties.Resources._2NOR;
+
+                case Elements.NOR3:
+                    return LogicCircuitSimulator.Properties.Resources._3NOR;
+
+                case Elements.NOR4:
+                    return LogicCircuitSimulator.Properties.Resources._4NOR;
+
+                case Elements.NOR5:
+                    return LogicCircuitSimulator.Properties.Resources._5NOR;
+
+                case Elements.NOR6:
+                    return LogicCircuitSimulator.Properties.Resources._6NOR;
+
+                case Elements.NOR7:
+                    return LogicCircuitSimulator.Properties.Resources._7NOR;
+
+                case Elements.NOR8:
+                    return LogicCircuitSimulator.Properties.Resources._8NOR;
+
+
+                case Elements.XOR2:
+                    return LogicCircuitSimulator.Properties.Resources._2XOR;
+
+                case Elements.XOR3:
+                    return LogicCircuitSimulator.Properties.Resources._3XOR;
+
+                case Elements.XOR4:
+                    return LogicCircuitSimulator.Properties.Resources._4XOR;
+
+                case Elements.XOR5:
+                    return LogicCircuitSimulator.Properties.Resources._5XOR;
+
+                case Elements.XOR6:
+                    return LogicCircuitSimulator.Properties.Resources._6XOR;
+
+                case Elements.XOR7:
+                    return LogicCircuitSimulator.Properties.Resources._7XOR;
+
+                case Elements.XOR8:
+                    return LogicCircuitSimulator.Properties.Resources._8XOR;
+
+
+                case Elements.XNOR2:
+                    return LogicCircuitSimulator.Properties.Resources._2XNOR;
+
+                case Elements.XNOR3:
+                    return LogicCircuitSimulator.Properties.Resources._3XNOR;
+
+                case Elements.XNOR4:
+                    return LogicCircuitSimulator.Properties.Resources._4XNOR;
+
+                case Elements.XNOR5:
+                    return LogicCircuitSimulator.Properties.Resources._5XNOR;
+
+                case Elements.XNOR6:
+                    return LogicCircuitSimulator.Properties.Resources._6XNOR;
+
+                case Elements.XNOR7:
+                    return LogicCircuitSimulator.Properties.Resources._7XNOR;
+
+                case Elements.XNOR8:
+                    return LogicCircuitSimulator.Properties.Resources._8XNOR;
+
+
+                case Elements.FORK3:
+                    return LogicCircuitSimulator.Properties.Resources.Fork3;
+
+                case Elements.FORK4:
+                    return LogicCircuitSimulator.Properties.Resources.Fork4;
+
+
+                case Elements.ITerm:
+                    return LogicCircuitSimulator.Properties.Resources.ITerminal;
+
+                case Elements.OTerm:
+                    return LogicCircuitSimulator.Properties.Resources.OTerminal;
+
+                default:
+                    throw new InvalidEnumArgumentException(
+                        "_type", (int)_type, typeof(Elements)
+                    );
+            }
+        }
+
+
         public static bool IsGate(Elements _type)
         {
             switch (_type)
@@ -166,8 +332,7 @@ namespace LogicCircuitSimulator
                     return false;
             }
         }
-
-
+        
         public static bool IsUnaryGate(Elements _type)
         {
             switch (_type)
@@ -265,5 +430,20 @@ namespace LogicCircuitSimulator
             }
         }
 
+        public static  void DrawActiveLine(Graphics _g, PointF p1, PointF p2)
+        {
+            _g.DrawLine(Pens.Red, p1, p2);
+        }
+
+        public static void DrawInactiveLine(Graphics _g, PointF p1, PointF p2)
+        {
+            _g.DrawLine(Pens.Black, p1, p2);
+        }
+
+        public static void DrawElement(Graphics _g, Elements _type, Point p)
+        {
+            Image img = GetImage(_type);
+            _g.DrawImage(img, p);
+        }
     }
 }

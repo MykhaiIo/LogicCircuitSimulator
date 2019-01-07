@@ -136,6 +136,7 @@
     <Content Include="Resources\Fork4.png" />
     <Content Include="Resources\ITerminal.png" />
     <Content Include="Resources\INV.png" />
+    <None Include="Resources\logic-512.ico" />
     <Content Include="Resources\OTerminal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
