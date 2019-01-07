@@ -189,5 +189,74 @@ namespace LogicCircuitSimulator
             Require.That(result.Value == LogicValue.LOGIC_0, "Result of NOT 1 isn't 0.");
             Console.WriteLine("NOT 1 passed.");
         }
+
+        public static void TestCase_AndGateSimulation()
+        {
+            void VerifyStates(Pin x1_out_pin, string x1_out_val,
+                              Pin x2_out_pin, string x2_out_val,
+                              Pin and_in0_pin, string and_in0_val,
+                              Pin and_in1_pin, string and_in1_val,
+                              Pin and_out_pin, string and_out_val,
+                              Pin y1_in_pin, string y1_in_val,
+                              Logic y1_res_real, string y1_res_exp)
+            {
+                LogicValue StringToLogicValue(string str)
+                {
+                    switch (str)
+                    {
+                        case "0":
+                            return LogicValue.LOGIC_0;
+                        case "1":
+                            return LogicValue.LOGIC_1;
+                        case "U":
+                            return LogicValue.UNINITIALIZED;
+                        default:
+                            throw new ArgumentException("Invalid string equivalent of LogicValue.");
+                    }
+                }
+
+                Require.That(x1_out_pin.State.Value == StringToLogicValue(x1_out_val));
+                Require.That(x2_out_pin.State.Value == StringToLogicValue(x2_out_val));
+                Require.That(and_in0_pin.State.Value == StringToLogicValue(and_in0_val));
+                Require.That(and_in1_pin.State.Value == StringToLogicValue(and_in1_val));
+                Require.That(and_out_pin.State.Value == StringToLogicValue(and_out_val));
+                Require.That(y1_in_pin.State.Value == StringToLogicValue(y1_in_val));
+                Require.That(y1_res_real.Value == StringToLogicValue(y1_res_exp));
+            }
+
+            Circuit cir = new Circuit();
+            InTerminal x1 = new InTerminal();
+            cir.AddElement(x1);
+            InTerminal x2 = new InTerminal();
+            cir.AddElement(x2);
+            AND and = new AND();
+            cir.AddElement(and);
+            OutTerminal y1 = new OutTerminal();
+            cir.AddElement(y1);
+
+            Pin x1_out = x1.GetPin(PinSide.OUTPUT, 0);
+            Pin x2_out = x2.GetPin(PinSide.OUTPUT, 0);
+            Pin and_in0 = and.GetPin(PinSide.INPUT, 0);
+            Pin and_in1 = and.GetPin(PinSide.INPUT, 1);
+            Pin and_out = and.GetPin(PinSide.OUTPUT, 0);
+            Pin y1_in = y1.GetPin(PinSide.INPUT, 0);
+
+            cir.Connect(x1_out, and_in0);
+            cir.Connect(x2_out, and_in1);
+            cir.Connect(and_out, y1_in);
+
+            x1.SimulationInputValue = new Logic(LogicValue.LOGIC_1);
+            x2.SimulationInputValue = new Logic(LogicValue.LOGIC_1);
+
+            cir.RestartSimulation();
+            VerifyStates(x1_out, "U", x2_out, "U", and_in0, "U", and_in1, "U", and_out, "U", y1_in, "U", y1.SimulationResult, "U");
+            cir.NextMoment();
+            VerifyStates(x1_out, "1", x2_out, "1", and_in0, "1", and_in1, "1", and_out, "U", y1_in, "U", y1.SimulationResult, "U");
+            cir.NextMoment();
+            VerifyStates(x1_out, "1", x2_out, "1", and_in0, "1", and_in1, "1", and_out, "1", y1_in, "1", y1.SimulationResult, "U");
+            cir.NextMoment();
+            VerifyStates(x1_out, "1", x2_out, "1", and_in0, "1", and_in1, "1", and_out, "1", y1_in, "1", y1.SimulationResult, "1");
+        }
+
     }
 }

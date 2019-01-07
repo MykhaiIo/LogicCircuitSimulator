@@ -77,6 +77,21 @@
             LogicValue rv = not_table[(byte)l.Value];
             return new Logic(rv);
         }
+
+        public override string ToString()
+        {
+            switch (Value)
+            {
+                case LogicValue.LOGIC_0:
+                    return "0";
+                case LogicValue.LOGIC_1:
+                    return "1";
+                case LogicValue.UNINITIALIZED:
+                    return "U";
+                default:
+                    throw new System.NotImplementedException();
+            }
+        }
     }
 
     
