@@ -27,10 +27,13 @@ namespace LogicCircuitSimulator
             UnitTest.TestCase_Nand_Nor_GatesSimulation();
         }
 
-
-        private void MainForm_Paint(object sender, PaintEventArgs e)
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Graphics g = e.Graphics;
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
         }
     }
