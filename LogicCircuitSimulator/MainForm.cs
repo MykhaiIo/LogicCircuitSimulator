@@ -25,7 +25,12 @@ namespace LogicCircuitSimulator
             UnitTest.TestCase_NOT();
             UnitTest.TestCase_AndGateSimulation();
         }
-        
-        
+
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+        }
     }
 }

@@ -48,15 +48,17 @@ namespace LogicCircuitSimulator
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Mode";
+            this.label3.UseWaitCursor = false;
             // 
             // ElementsList
             // 
             this.ElementsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ElementsList.FormattingEnabled = true;
-            this.ElementsList.Location = new System.Drawing.Point(32, 186);
+            this.ElementsList.Location = new System.Drawing.Point(32, 238);
             this.ElementsList.Name = "ElementsList";
-            this.ElementsList.Size = new System.Drawing.Size(175, 121);
+            this.ElementsList.Size = new System.Drawing.Size(175, 69);
             this.ElementsList.TabIndex = 8;
+            this.ElementsList.UseWaitCursor = false;
             // 
             // GatesList
             // 
@@ -68,6 +70,8 @@ namespace LogicCircuitSimulator
             this.GatesList.Name = "GatesList";
             this.GatesList.Size = new System.Drawing.Size(175, 290);
             this.GatesList.TabIndex = 7;
+            this.GatesList.UseWaitCursor = false;
+
             // 
             // label1
             // 
@@ -78,6 +82,7 @@ namespace LogicCircuitSimulator
             this.label1.Size = new System.Drawing.Size(17, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "X:";
+            this.label1.UseWaitCursor = false;
             // 
             // label2
             // 
@@ -88,6 +93,7 @@ namespace LogicCircuitSimulator
             this.label2.Size = new System.Drawing.Size(17, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Y:";
+            this.label2.UseWaitCursor = false;
             // 
             // panel1
             // 
@@ -95,6 +101,7 @@ namespace LogicCircuitSimulator
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(872, 599);
             this.panel1.TabIndex = 12;
+
             // 
             // button1
             // 
@@ -113,6 +120,7 @@ namespace LogicCircuitSimulator
             this.button2.TabIndex = 14;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.panel1.UseWaitCursor = false;
             // 
             // MainForm
             // 
@@ -131,6 +139,8 @@ namespace LogicCircuitSimulator
             this.Name = "MainForm";
             this.Text = "LogCircSim";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.UseWaitCursor = true;
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
