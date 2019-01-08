@@ -671,4 +671,19 @@ namespace LogicCircuitSimulator
 
         
     }
+
+    static class GUI
+    {
+        public static Graphics g_graphics;
+
+        public static void DrawActiveLine(PointF p1, PointF p2)
+        {
+            g_graphics.DrawLine(Pens.Red, p1, p2);
+        }
+
+        public static void DrawInactiveLine(PointF p1, PointF p2)
+        {
+            g_graphics.DrawLine(Pens.Black, p1, p2);
+        }
+    }
 }

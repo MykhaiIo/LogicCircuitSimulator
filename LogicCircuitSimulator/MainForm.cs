@@ -52,16 +52,16 @@ namespace LogicCircuitSimulator
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
+            GUI.g_graphics = e.Graphics;
             int w = panel1.Width;
             int h = panel1.Height;
             Pen blackpen = new Pen(Color.Black)
             {
                 Width = 2
             };
-            g.DrawRectangle(blackpen, 220, 50, w, h);
+            GUI.g_graphics.DrawRectangle(blackpen, 220, 50, w, h);
             blackpen.Dispose();
-            g.Dispose();
+            GUI.g_graphics.Dispose();
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
