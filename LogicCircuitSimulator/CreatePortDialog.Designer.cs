@@ -72,7 +72,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(230, 230);
             this.Name = "CreatePortDialog";
-            this.Text = "CreatePortDialog";
+            this.Text = "CreatePort";
             this.ResumeLayout(false);
 
         }

@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 
 namespace LogicCircuitSimulator
 {
-    public static class GraphicSymbols
+    public static class GraphicElements
     {
         public enum Elements
         {
@@ -107,6 +107,8 @@ namespace LogicCircuitSimulator
         public static PointF TICoordinates1 { get; } = new PointF(21, 2.5f);
 
         public static PointF TOCoordinates1 { get; } = new PointF(0, 2.5f);
+
+        
 
         public static Bitmap GetImage(Elements _type)
         {
@@ -333,7 +335,7 @@ namespace LogicCircuitSimulator
             }
         }
 
-      
+
         public static bool IsUnaryGate(Elements _type)
         {
             switch (_type)
@@ -347,7 +349,7 @@ namespace LogicCircuitSimulator
             }
         }
 
-        public static bool IsBinaryGate(Elements _type)
+        public static bool IsPolinaryGate(Elements _type)
         {
             switch (_type)
             {
@@ -420,7 +422,7 @@ namespace LogicCircuitSimulator
 
         public static bool IsFork(Elements _type)
         {
-            switch(_type)
+            switch (_type)
             {
                 case Elements.FORK3:
                 case Elements.FORK4:
@@ -432,7 +434,7 @@ namespace LogicCircuitSimulator
         }
 
 
-        public static  void DrawActiveLine(Graphics _g, PointF p1, PointF p2)
+        public static void DrawActiveLine(Graphics _g, PointF p1, PointF p2)
         {
             _g.DrawLine(Pens.Red, p1, p2);
         }
@@ -447,5 +449,6 @@ namespace LogicCircuitSimulator
             Image img = GetImage(_type);
             _g.DrawImage(img, p);
         }
+
     }
 }
