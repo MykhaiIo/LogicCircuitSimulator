@@ -543,6 +543,16 @@ namespace LogicCircuitSimulator.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Next {
+            get {
+                object obj = ResourceManager.GetObject("Next", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OTerminal {
             get {
                 object obj = ResourceManager.GetObject("OTerminal", resourceCulture);
@@ -566,6 +576,16 @@ namespace LogicCircuitSimulator.Properties {
         internal static System.Drawing.Bitmap Restart {
             get {
                 object obj = ResourceManager.GetObject("Restart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Run_until_finished {
+            get {
+                object obj = ResourceManager.GetObject("Run_until_finished", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

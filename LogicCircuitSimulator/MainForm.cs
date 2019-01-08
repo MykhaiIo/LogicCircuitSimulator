@@ -15,6 +15,10 @@ namespace LogicCircuitSimulator
         public MainForm()
         {
             InitializeComponent();
+            Circuit = new Circuit();
+            graphics = panel1.CreateGraphics();
+            VisualElements = new Dictionary<int, VisualElement>();
+            PictureBoxes = new Dictionary<int, PictureBox>();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -29,14 +33,158 @@ namespace LogicCircuitSimulator
             UnitTest.TestCase_Fork_3Not_And_GatesSimulation();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            xPos.Text = "X: " + e.Location.X;
+            yPos.Text = "Y: " + e.Location.Y;
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            int w = panel1.Width;
+            int h = panel1.Height;
+            Pen blackpen = new Pen(Color.Black)
+            {
+                Width = 2
+            };
+            g.DrawRectangle(blackpen, 220, 50, w, h);
+            blackpen.Dispose();
+            g.Dispose();
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            Invalidate();
+        }
+
+        private Circuit Circuit;
+        private Graphics graphics;
+
+        private Dictionary<int, VisualElement> VisualElements; //Key = Element ID
+        private Dictionary<int, PictureBox> PictureBoxes;      //Key = Element ID
+        private List<Tuple<VisualElement, VisualElement>> Connections; // A -> B
+
+        private bool MouseDownOnSelectedPicBox = false;
+        private Point MouseDownLocation;
+
+        private bool Connecting = false;
+        private int SendingControlTag;
+        private int ReceiveingControlTag;      
+
+        private void bNext_Click(object sender, EventArgs e)
+        {
+            Circuit.NextMoment();
+            Invalidate();
+        }
+
+        private void bStart_Click(object sender, EventArgs e)
+        {
+            Circuit.SimulateFor(100);
+            Invalidate();
+        }
+
+        private void bStop_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void bRestart_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void bAnd_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void bNand_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void bOr_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bNor_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void bXor_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bXnor_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void bBuf_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void bInv_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bInPort_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bOutPort_Click(object sender, EventArgs e)
+        {
+            /*var velement = new VisualElement(VisualElement.Elements.OTerm);
+            VisualElements.Add(e.GetHashCode(), velement);
+            var OutTer = new OutTerminal();
+            Circuit.AddElement(OutTer);
+            PictureBox pb = new PictureBox
+            {
+                Name = "OTer",
+                Location = new Point(100, 100),
+                Image = velement.GetImage(VisualElement.Elements.OTerm)
+            };
+
+            PictureBoxes.Add(e.GetHashCode(), pb);
+            panel1.Controls.Add(pb);*/
+        }
+
+        private void bClear_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?\nThis will delete all the elements!"
+                              , "Attention!"
+                              , MessageBoxButtons.OKCancel
+                              , MessageBoxIcon.Exclamation
+                        ) == DialogResult.OK)
+            {
+                VisualElements.Clear();
+                //OutputPorts.Clear();
+                //Connections.Clear();
+                PictureBoxes.Clear();
+
+                panel1.Controls.Clear();
+                graphics.Clear(panel1.BackColor);
+            }
+        }
+
+        private void stopSimulationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

@@ -28,17 +28,12 @@ namespace LogicCircuitSimulator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label3 = new System.Windows.Forms.Label();
-            this.ElementsList = new System.Windows.Forms.ListBox();
-            this.GatesList = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.xPos = new System.Windows.Forms.Label();
+            this.yPos = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bStart = new System.Windows.Forms.Button();
-            this.bStop = new System.Windows.Forms.Button();
-            this.bRestart = new System.Windows.Forms.Button();
-            this.bClear = new System.Windows.Forms.Button();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,122 +57,69 @@ namespace LogicCircuitSimulator
             this.aboutLogCircSimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.bClear = new System.Windows.Forms.Button();
+            this.bRestart = new System.Windows.Forms.Button();
+            this.bStop = new System.Windows.Forms.Button();
+            this.bStart = new System.Windows.Forms.Button();
+            this.bNext = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bAnd = new System.Windows.Forms.Button();
+            this.bNand = new System.Windows.Forms.Button();
+            this.bOr = new System.Windows.Forms.Button();
+            this.bNor = new System.Windows.Forms.Button();
+            this.bXor = new System.Windows.Forms.Button();
+            this.bXnor = new System.Windows.Forms.Button();
+            this.bBuf = new System.Windows.Forms.Button();
+            this.bInv = new System.Windows.Forms.Button();
+            this.bInPort = new System.Windows.Forms.Button();
+            this.bOutPort = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1063, 623);
+            this.label3.Location = new System.Drawing.Point(1056, 625);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Mode";
-            this.label3.UseWaitCursor = false;
             // 
-            // ElementsList
+            // xPos
             // 
-            this.ElementsList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ElementsList.FormattingEnabled = true;
-            this.ElementsList.Items.AddRange(new object[] {
-            "Gates",
-            "Input Port",
-            "Output Port"});
-            this.ElementsList.Location = new System.Drawing.Point(32, 454);
-            this.ElementsList.Name = "ElementsList";
-            this.ElementsList.Size = new System.Drawing.Size(175, 43);
-            this.ElementsList.TabIndex = 8;
-            this.ElementsList.UseWaitCursor = false;
+            this.xPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.xPos.AutoSize = true;
+            this.xPos.Location = new System.Drawing.Point(222, 625);
+            this.xPos.Name = "xPos";
+            this.xPos.Size = new System.Drawing.Size(17, 13);
+            this.xPos.TabIndex = 10;
+            this.xPos.Text = "X:";
             // 
-            // GatesList
+            // yPos
             // 
-            this.GatesList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.GatesList.FormattingEnabled = true;
-            this.GatesList.Items.AddRange(new object[] {
-            "AND",
-            "NAND",
-            "OR",
-            "NOR",
-            "XOR",
-            "XNOR",
-            "INV",
-            "BUF"});
-            this.GatesList.Location = new System.Drawing.Point(32, 503);
-            this.GatesList.Name = "GatesList";
-            this.GatesList.Size = new System.Drawing.Size(175, 108);
-            this.GatesList.TabIndex = 7;
-            this.GatesList.UseWaitCursor = false;
-
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(222, 625);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "X:";
-            this.label1.UseWaitCursor = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(275, 625);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Y:";
-            this.label2.UseWaitCursor = false;
+            this.yPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.yPos.AutoSize = true;
+            this.yPos.Location = new System.Drawing.Point(275, 625);
+            this.yPos.Name = "yPos";
+            this.yPos.Size = new System.Drawing.Size(17, 13);
+            this.yPos.TabIndex = 11;
+            this.yPos.Text = "Y:";
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(225, 66);
+            this.panel1.Location = new System.Drawing.Point(220, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(872, 545);
+            this.panel1.Size = new System.Drawing.Size(870, 570);
             this.panel1.TabIndex = 12;
-
-            // 
-            // bStart
-            // 
-            this.bStart.Image = global::LogicCircuitSimulator.Properties.Resources.Start;
-            this.bStart.Location = new System.Drawing.Point(89, 66);
-            this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(40, 38);
-            this.bStart.TabIndex = 13;
-            this.bStart.UseVisualStyleBackColor = true;
-            // 
-            // bStop
-            // 
-            this.bStop.Image = global::LogicCircuitSimulator.Properties.Resources.Stop;
-            this.bStop.Location = new System.Drawing.Point(89, 110);
-            this.bStop.Name = "bStop";
-            this.bStop.Size = new System.Drawing.Size(40, 38);
-            this.bStop.TabIndex = 14;
-            this.bStop.UseVisualStyleBackColor = true;
-            // 
-            // bRestart
-            // 
-            this.bRestart.Image = global::LogicCircuitSimulator.Properties.Resources.Restart;
-            this.bRestart.Location = new System.Drawing.Point(89, 154);
-            this.bRestart.Name = "bRestart";
-            this.bRestart.Size = new System.Drawing.Size(40, 38);
-            this.bRestart.TabIndex = 15;
-            this.bRestart.UseVisualStyleBackColor = true;
-            // 
-            // bClear
-            // 
-            this.bClear.Image = global::LogicCircuitSimulator.Properties.Resources.Remove;
-            this.bClear.Location = new System.Drawing.Point(89, 198);
-            this.bClear.Name = "bClear";
-            this.bClear.Size = new System.Drawing.Size(40, 38);
-            this.bClear.TabIndex = 16;
-            this.bClear.UseVisualStyleBackColor = true;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // toolStripMenuItem1
             // 
@@ -188,16 +130,17 @@ namespace LogicCircuitSimulator
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.toolStripMenuItem1.Text = "File";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // newProjectToolStripMenuItem
             // 
+            this.newProjectToolStripMenuItem.Enabled = false;
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
             this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newProjectToolStripMenuItem.Text = "New Project";
             // 
             // openProjectToolStripMenuItem
             // 
+            this.openProjectToolStripMenuItem.Enabled = false;
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
             this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openProjectToolStripMenuItem.Text = "Open Project";
@@ -221,19 +164,19 @@ namespace LogicCircuitSimulator
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // startSimulationToolStripMenuItem
@@ -250,6 +193,7 @@ namespace LogicCircuitSimulator
             this.stopSimulationToolStripMenuItem.Name = "stopSimulationToolStripMenuItem";
             this.stopSimulationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stopSimulationToolStripMenuItem.Text = "Start Simulation";
+            this.stopSimulationToolStripMenuItem.Click += new System.EventHandler(this.stopSimulationToolStripMenuItem_Click);
             // 
             // stopSimulationToolStripMenuItem1
             // 
@@ -271,6 +215,7 @@ namespace LogicCircuitSimulator
             // 
             // fullscreenToolStripMenuItem
             // 
+            this.fullscreenToolStripMenuItem.Enabled = false;
             this.fullscreenToolStripMenuItem.Name = "fullscreenToolStripMenuItem";
             this.fullscreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fullscreenToolStripMenuItem.Text = "Fullscreen";
@@ -278,24 +223,24 @@ namespace LogicCircuitSimulator
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // zoomInToolStripMenuItem
             // 
             this.zoomInToolStripMenuItem.Name = "zoomInToolStripMenuItem";
-            this.zoomInToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zoomInToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.zoomInToolStripMenuItem.Text = "Zoom In";
             // 
             // zoomOutToolStripMenuItem
             // 
             this.zoomOutToolStripMenuItem.Name = "zoomOutToolStripMenuItem";
-            this.zoomOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zoomOutToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.zoomOutToolStripMenuItem.Text = "Zoom Out";
             // 
             // originalScaleToolStripMenuItem
             // 
             this.originalScaleToolStripMenuItem.Name = "originalScaleToolStripMenuItem";
-            this.originalScaleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.originalScaleToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.originalScaleToolStripMenuItem.Text = "Original Scale";
             // 
             // helpToolStripMenuItem
@@ -311,6 +256,7 @@ namespace LogicCircuitSimulator
             // 
             // helpToolStripMenuItem1
             // 
+            this.helpToolStripMenuItem1.Enabled = false;
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.helpToolStripMenuItem1.Text = "Help";
@@ -318,18 +264,18 @@ namespace LogicCircuitSimulator
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(168, 6);
             // 
             // aboutLogCircSimToolStripMenuItem
             // 
             this.aboutLogCircSimToolStripMenuItem.Name = "aboutLogCircSimToolStripMenuItem";
-            this.aboutLogCircSimToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutLogCircSimToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.aboutLogCircSimToolStripMenuItem.Text = "About LogCircSim";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // menuStrip1
@@ -345,23 +291,222 @@ namespace LogicCircuitSimulator
             this.menuStrip1.Size = new System.Drawing.Size(1130, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // bClear
+            // 
+            this.bClear.Image = global::LogicCircuitSimulator.Properties.Resources.Remove;
+            this.bClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bClear.Location = new System.Drawing.Point(48, 579);
+            this.bClear.Name = "bClear";
+            this.bClear.Size = new System.Drawing.Size(106, 41);
+            this.bClear.TabIndex = 16;
+            this.bClear.Text = "Clear      ";
+            this.bClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
+            // 
+            // bRestart
+            // 
+            this.bRestart.Image = global::LogicCircuitSimulator.Properties.Resources.Restart;
+            this.bRestart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bRestart.Location = new System.Drawing.Point(48, 191);
+            this.bRestart.Name = "bRestart";
+            this.bRestart.Size = new System.Drawing.Size(106, 41);
+            this.bRestart.TabIndex = 15;
+            this.bRestart.Text = "Restart   ";
+            this.bRestart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bRestart.UseVisualStyleBackColor = true;
+            this.bRestart.Click += new System.EventHandler(this.bRestart_Click);
+            // 
+            // bStop
+            // 
+            this.bStop.Image = global::LogicCircuitSimulator.Properties.Resources.Stop;
+            this.bStop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bStop.Location = new System.Drawing.Point(48, 144);
+            this.bStop.Name = "bStop";
+            this.bStop.Size = new System.Drawing.Size(106, 41);
+            this.bStop.TabIndex = 14;
+            this.bStop.Text = "          Stop";
+            this.bStop.UseVisualStyleBackColor = true;
+            this.bStop.Click += new System.EventHandler(this.bStop_Click);
+            // 
+            // bStart
+            // 
+            this.bStart.Image = ((System.Drawing.Image)(resources.GetObject("bStart.Image")));
+            this.bStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bStart.Location = new System.Drawing.Point(48, 97);
+            this.bStart.Name = "bStart";
+            this.bStart.Size = new System.Drawing.Size(106, 41);
+            this.bStart.TabIndex = 13;
+            this.bStart.Text = "Get Result";
+            this.bStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bStart.UseVisualStyleBackColor = true;
+            this.bStart.Click += new System.EventHandler(this.bStart_Click);
+            // 
+            // bNext
+            // 
+            this.bNext.Image = global::LogicCircuitSimulator.Properties.Resources.Next;
+            this.bNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bNext.Location = new System.Drawing.Point(48, 50);
+            this.bNext.Name = "bNext";
+            this.bNext.Size = new System.Drawing.Size(106, 41);
+            this.bNext.TabIndex = 18;
+            this.bNext.Text = "Next Step";
+            this.bNext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bNext.UseVisualStyleBackColor = true;
+            this.bNext.Click += new System.EventHandler(this.bNext_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem1,
+            this.disconnectToolStripMenuItem,
+            this.removeToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(134, 70);
+            // 
+            // editToolStripMenuItem1
+            // 
+            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.editToolStripMenuItem1.Text = "Edit";
+            // 
+            // disconnectToolStripMenuItem
+            // 
+            this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
+            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.disconnectToolStripMenuItem.Text = "Disconnect";
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            // 
+            // bAnd
+            // 
+            this.bAnd.Image = global::LogicCircuitSimulator.Properties.Resources._2AND;
+            this.bAnd.Location = new System.Drawing.Point(48, 268);
+            this.bAnd.Name = "bAnd";
+            this.bAnd.Size = new System.Drawing.Size(50, 40);
+            this.bAnd.TabIndex = 20;
+            this.bAnd.UseVisualStyleBackColor = true;
+            this.bAnd.Click += new System.EventHandler(this.bAnd_Click);
+            // 
+            // bNand
+            // 
+            this.bNand.Image = global::LogicCircuitSimulator.Properties.Resources._2NAND;
+            this.bNand.Location = new System.Drawing.Point(104, 268);
+            this.bNand.Name = "bNand";
+            this.bNand.Size = new System.Drawing.Size(50, 40);
+            this.bNand.TabIndex = 21;
+            this.bNand.UseVisualStyleBackColor = true;
+            this.bNand.Click += new System.EventHandler(this.bNand_Click);
+            // 
+            // bOr
+            // 
+            this.bOr.Image = global::LogicCircuitSimulator.Properties.Resources._2OR;
+            this.bOr.Location = new System.Drawing.Point(48, 329);
+            this.bOr.Name = "bOr";
+            this.bOr.Size = new System.Drawing.Size(50, 40);
+            this.bOr.TabIndex = 22;
+            this.bOr.UseVisualStyleBackColor = true;
+            this.bOr.Click += new System.EventHandler(this.bOr_Click);
+            // 
+            // bNor
+            // 
+            this.bNor.Image = global::LogicCircuitSimulator.Properties.Resources._2NOR;
+            this.bNor.Location = new System.Drawing.Point(104, 329);
+            this.bNor.Name = "bNor";
+            this.bNor.Size = new System.Drawing.Size(50, 40);
+            this.bNor.TabIndex = 23;
+            this.bNor.UseVisualStyleBackColor = true;
+            this.bNor.Click += new System.EventHandler(this.bNor_Click);
+            // 
+            // bXor
+            // 
+            this.bXor.Image = global::LogicCircuitSimulator.Properties.Resources._2XOR;
+            this.bXor.Location = new System.Drawing.Point(48, 390);
+            this.bXor.Name = "bXor";
+            this.bXor.Size = new System.Drawing.Size(50, 40);
+            this.bXor.TabIndex = 24;
+            this.bXor.UseVisualStyleBackColor = true;
+            this.bXor.Click += new System.EventHandler(this.bXor_Click);
+            // 
+            // bXnor
+            // 
+            this.bXnor.Image = global::LogicCircuitSimulator.Properties.Resources._2XNOR;
+            this.bXnor.Location = new System.Drawing.Point(104, 390);
+            this.bXnor.Name = "bXnor";
+            this.bXnor.Size = new System.Drawing.Size(50, 40);
+            this.bXnor.TabIndex = 25;
+            this.bXnor.UseVisualStyleBackColor = true;
+            this.bXnor.Click += new System.EventHandler(this.bXnor_Click);
+            // 
+            // bBuf
+            // 
+            this.bBuf.Image = global::LogicCircuitSimulator.Properties.Resources.BUF;
+            this.bBuf.Location = new System.Drawing.Point(48, 456);
+            this.bBuf.Name = "bBuf";
+            this.bBuf.Size = new System.Drawing.Size(50, 40);
+            this.bBuf.TabIndex = 26;
+            this.bBuf.UseVisualStyleBackColor = true;
+            this.bBuf.Click += new System.EventHandler(this.bBuf_Click);
+            // 
+            // bInv
+            // 
+            this.bInv.Image = global::LogicCircuitSimulator.Properties.Resources.INV;
+            this.bInv.Location = new System.Drawing.Point(104, 456);
+            this.bInv.Name = "bInv";
+            this.bInv.Size = new System.Drawing.Size(50, 40);
+            this.bInv.TabIndex = 27;
+            this.bInv.UseVisualStyleBackColor = true;
+            this.bInv.Click += new System.EventHandler(this.bInv_Click);
+            // 
+            // bInPort
+            // 
+            this.bInPort.Image = global::LogicCircuitSimulator.Properties.Resources.ITerminal;
+            this.bInPort.Location = new System.Drawing.Point(56, 521);
+            this.bInPort.Name = "bInPort";
+            this.bInPort.Size = new System.Drawing.Size(34, 22);
+            this.bInPort.TabIndex = 28;
+            this.bInPort.UseVisualStyleBackColor = true;
+            this.bInPort.Click += new System.EventHandler(this.bInPort_Click);
+            // 
+            // bOutPort
+            // 
+            this.bOutPort.Image = global::LogicCircuitSimulator.Properties.Resources.OTerminal;
+            this.bOutPort.Location = new System.Drawing.Point(111, 521);
+            this.bOutPort.Name = "bOutPort";
+            this.bOutPort.Size = new System.Drawing.Size(34, 22);
+            this.bOutPort.TabIndex = 29;
+            this.bOutPort.UseVisualStyleBackColor = true;
+            this.bOutPort.Click += new System.EventHandler(this.bOutPort_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 647);
+            this.Controls.Add(this.bOutPort);
+            this.Controls.Add(this.bInPort);
+            this.Controls.Add(this.bInv);
+            this.Controls.Add(this.bBuf);
+            this.Controls.Add(this.bXnor);
+            this.Controls.Add(this.bXor);
+            this.Controls.Add(this.bAnd);
+            this.Controls.Add(this.bNor);
+            this.Controls.Add(this.bOr);
+            this.Controls.Add(this.bNand);
+            this.Controls.Add(this.bNext);
             this.Controls.Add(this.bClear);
             this.Controls.Add(this.bRestart);
             this.Controls.Add(this.bStop);
             this.Controls.Add(this.bStart);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.yPos);
+            this.Controls.Add(this.xPos);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.ElementsList);
-            this.Controls.Add(this.GatesList);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -369,8 +514,11 @@ namespace LogicCircuitSimulator
             this.Name = "MainForm";
             this.Text = "LogCircSim";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,10 +527,8 @@ namespace LogicCircuitSimulator
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox ElementsList;
-        private System.Windows.Forms.ListBox GatesList;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label xPos;
+        private System.Windows.Forms.Label yPos;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bStart;
         private System.Windows.Forms.Button bStop;
@@ -411,6 +557,21 @@ namespace LogicCircuitSimulator
         private System.Windows.Forms.ToolStripMenuItem aboutLogCircSimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button bNext;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
+        private System.Windows.Forms.Button bAnd;
+        private System.Windows.Forms.Button bNand;
+        private System.Windows.Forms.Button bOr;
+        private System.Windows.Forms.Button bNor;
+        private System.Windows.Forms.Button bXor;
+        private System.Windows.Forms.Button bXnor;
+        private System.Windows.Forms.Button bBuf;
+        private System.Windows.Forms.Button bInv;
+        private System.Windows.Forms.Button bInPort;
+        private System.Windows.Forms.Button bOutPort;
     }
 }
 

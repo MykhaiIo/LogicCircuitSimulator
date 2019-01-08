@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateGateDialog.cs">
+    <Compile Include="CreateConnectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateGateDialog.Designer.cs">
-      <DependentUpon>CreateGateDialog.cs</DependentUpon>
+    <Compile Include="CreateConnectionDialog.Designer.cs">
+      <DependentUpon>CreateConnectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="CreatePortDialog.cs">
       <SubType>Form</SubType>
@@ -58,7 +58,12 @@
     <Compile Include="CreatePortDialog.Designer.cs">
       <DependentUpon>CreatePortDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphicSymbols.cs" />
+    <Compile Include="EditGateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditGateDialog.Designer.cs">
+      <DependentUpon>EditGateDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Circuit.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Exceptions.cs" />
@@ -77,12 +82,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SimulateFor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimulateFor.Designer.cs">
+      <DependentUpon>SimulateFor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitTest.cs" />
-    <EmbeddedResource Include="CreateGateDialog.resx">
-      <DependentUpon>CreateGateDialog.cs</DependentUpon>
+    <Compile Include="VisualElement.cs" />
+    <EmbeddedResource Include="CreateConnectionDialog.resx">
+      <DependentUpon>CreateConnectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePortDialog.resx">
       <DependentUpon>CreatePortDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditGateDialog.resx">
+      <DependentUpon>EditGateDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -91,6 +106,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimulateFor.resx">
+      <DependentUpon>SimulateFor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -150,15 +168,17 @@
     <Content Include="Resources\8XNOR.png" />
     <Content Include="Resources\8XOR.png" />
     <Content Include="Resources\BUF.png" />
+    <None Include="Resources\fast-forward-double-arrow-outline.png" />
     <Content Include="Resources\Fork3.png" />
     <Content Include="Resources\Fork4.png" />
+    <None Include="Resources\stop-button.png" />
+    <None Include="Resources\play-triangle-outline.png" />
+    <None Include="Resources\refreshing.png" />
     <None Include="Resources\remove-symbol.png" />
-    <None Include="Resources\iconfinder_play_3706872.png" />
-    <None Include="Resources\iconfinder_refresh_134221.png" />
-    <None Include="Resources\iconfinder_stop_227556.png" />
     <Content Include="Resources\ITerminal.png" />
     <Content Include="Resources\INV.png" />
     <None Include="Resources\logic-512.ico" />
+    <None Include="Resources\next.png" />
     <Content Include="Resources\OTerminal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
