@@ -23,14 +23,23 @@ namespace LogicCircuitSimulator
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            UnitTest.TestCase_2AND();
-            UnitTest.TestCase_2OR();
-            UnitTest.TestCase_2XOR();
-            UnitTest.TestCase_NOT();
+            UnitTest.TestCase_LogicOperatorAnd();
+            UnitTest.TestCase_LogicOperatorOr();
+            UnitTest.TestCase_LogicOperatorXor();
+            UnitTest.TestCase_LogicOperatorNot();
+
             UnitTest.TestCase_AndGateSimulation();
             UnitTest.TestCase_Nand_Nor_GatesSimulation();
             UnitTest.TestCase_Xnor_Xor_GatesSimulation();
             UnitTest.TestCase_Fork_3Not_And_GatesSimulation();
+
+            UnitTest.TestCase_SetNumberOfInputPinsAnd();
+            UnitTest.TestCase_6AndGateSimulation();
+
+            UnitTest.TestCase_ConnectDisconnectOfNot();
+
+            UnitTest.TestCase_SetNumberOfInputPinsNand();
+            UnitTest.TestCase_8NandGateSimulation();
         }
 
         
@@ -43,16 +52,16 @@ namespace LogicCircuitSimulator
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
+            GUI.g_graphics = e.Graphics;
             int w = panel1.Width;
             int h = panel1.Height;
             Pen blackpen = new Pen(Color.Black)
             {
                 Width = 2
             };
-            g.DrawRectangle(blackpen, 220, 50, w, h);
+            GUI.g_graphics.DrawRectangle(blackpen, 220, 50, w, h);
             blackpen.Dispose();
-            g.Dispose();
+            GUI.g_graphics.Dispose();
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
