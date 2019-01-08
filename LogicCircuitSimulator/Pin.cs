@@ -19,10 +19,10 @@
             get { return connected_pin; }
             set
             {
-                if (value.Side == this.Side)
-                    throw new ConnectToIdenticalSideException();
-                else
-                    connected_pin = value;
+                if (value != null)
+                    if (value.Side == this.Side)
+                        throw new ConnectToIdenticalSideException();
+                connected_pin = value;
             }
         }
     }

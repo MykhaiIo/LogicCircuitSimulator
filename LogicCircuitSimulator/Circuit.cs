@@ -43,11 +43,11 @@ namespace LogicCircuitSimulator
             if (pin.ConnectedPin == null)
                 throw new AlreadyDisconnectedPinException();
 
-            pin.ConnectedPin.ConnectedPin = null;
-            pin.ConnectedPin = null;
+            Pin opposite_pin = pin.ConnectedPin;
+
             if (pin.Side == PinSide.INPUT)
             {
-                port_map.Remove(pin.ConnectedPin);
+                port_map.Remove(opposite_pin); // Remove throught output pin
             }
             else if (pin.Side == PinSide.OUTPUT)
             {
@@ -57,6 +57,9 @@ namespace LogicCircuitSimulator
             {
                 throw new InvalidPinSideException();
             }
+
+            pin.ConnectedPin = null;
+            opposite_pin.ConnectedPin = null;
         }
 
         public void RestartSimulation()
