@@ -200,7 +200,6 @@ namespace LogicCircuitSimulator
             this.stopSimulationToolStripMenuItem1.Name = "stopSimulationToolStripMenuItem1";
             this.stopSimulationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.stopSimulationToolStripMenuItem1.Text = "Stop Simulation";
-            this.stopSimulationToolStripMenuItem1.Click += new System.EventHandler(this.stopSimulationToolStripMenuItem1_Click);
             // 
             // windowToolStripMenuItem
             // 

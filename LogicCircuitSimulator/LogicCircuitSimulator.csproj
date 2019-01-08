@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateGateDialog.cs">
+    <Compile Include="CreateConnectionDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateGateDialog.Designer.cs">
-      <DependentUpon>CreateGateDialog.cs</DependentUpon>
+    <Compile Include="CreateConnectionDialog.Designer.cs">
+      <DependentUpon>CreateConnectionDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="CreatePortDialog.cs">
       <SubType>Form</SubType>
@@ -64,7 +64,6 @@
     <Compile Include="EditGateDialog.Designer.cs">
       <DependentUpon>EditGateDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphicElements.cs" />
     <Compile Include="Circuit.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Exceptions.cs" />
@@ -83,10 +82,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SimulateFor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimulateFor.Designer.cs">
+      <DependentUpon>SimulateFor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnitTest.cs" />
     <Compile Include="VisualElement.cs" />
-    <EmbeddedResource Include="CreateGateDialog.resx">
-      <DependentUpon>CreateGateDialog.cs</DependentUpon>
+    <EmbeddedResource Include="CreateConnectionDialog.resx">
+      <DependentUpon>CreateConnectionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePortDialog.resx">
       <DependentUpon>CreatePortDialog.cs</DependentUpon>
@@ -101,6 +106,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimulateFor.resx">
+      <DependentUpon>SimulateFor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
