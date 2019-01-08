@@ -675,6 +675,9 @@ namespace LogicCircuitSimulator
     static class GUI
     {
         public static Graphics g_graphics;
+        public static ConnectableImages.AND2 and2_image_data;
+        public static ConnectableImages.AND3 and3_image_data;
+        public static ConnectableImages.AND4 and4_image_data;
 
         public static void DrawActiveLine(PointF p1, PointF p2)
         {
@@ -684,6 +687,50 @@ namespace LogicCircuitSimulator
         public static void DrawInactiveLine(PointF p1, PointF p2)
         {
             g_graphics.DrawLine(Pens.Black, p1, p2);
+        }
+
+        public class ConnectableImages
+        {
+              interface IConnectableImage
+            {
+                Bitmap Image { get; }
+                Point[] InputPoints { get; }
+                Point[] OutputPoints { get; }
+            }
+
+            public class AND2 : IConnectableImage
+            {
+                public AND2() {}
+                private Bitmap image = Properties.Resources._2AND;
+                Point[] input_points = { new Point(0, 10), new Point(0, 20) };
+                Point[] output_points = { new Point(40, 15) };
+
+                public Bitmap Image { get { return image; } }
+                public Point[] InputPoints { get { return input_points; } }
+                public Point[] OutputPoints { get { return output_points; } }
+            }
+
+            public class AND3 : IConnectableImage
+            {
+                private Bitmap image = Properties.Resources._3AND;
+                Point[] input_points = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
+                Point[] output_points = { new Point(40, 15) };
+
+                public Bitmap Image { get { return image; } }
+                public Point[] InputPoints { get { return input_points; } }
+                public Point[] OutputPoints { get { return output_points; } }
+            }
+
+            public class AND4 : IConnectableImage
+            {
+                private Bitmap image = Properties.Resources._3AND;
+                Point[] input_points = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
+                Point[] output_points = { new Point(40, 15) };
+
+                public Bitmap Image { get { return image; } }
+                public Point[] InputPoints { get { return input_points; } }
+                public Point[] OutputPoints { get { return output_points; } }
+            }
         }
     }
 }
