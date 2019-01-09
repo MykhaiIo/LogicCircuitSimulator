@@ -134,7 +134,7 @@ namespace LogicCircuitSimulator
 
         public void SetNumberOfOutputPins(FORK gate, byte new_n_pins)
         {
-            if (new_n_pins < 1 || new_n_pins > 8)
+            if (new_n_pins < 1 || new_n_pins > 3)
                 throw new NumberOfPinsOutOfRangeException();
 
             List<Pin> out_pins = gate.GetPinsBySide(PinSide.OUTPUT);
