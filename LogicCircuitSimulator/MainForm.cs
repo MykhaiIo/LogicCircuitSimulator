@@ -19,6 +19,7 @@ namespace LogicCircuitSimulator
             graphics = panel1.CreateGraphics();
             VisualElements = new Dictionary<int, GUI.Visual.Element>();
             PictureBoxes = new Dictionary<int, PictureBox>();
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -110,10 +111,108 @@ namespace LogicCircuitSimulator
 
         private void bAnd_Click(object sender, EventArgs e)
         {
-            var AND = new GUI.Visual.AND();
-            GUI.AddElement(AND);
-            var pb = AND.PictureBox;
+            var VisAND = new GUI.Visual.AND();
+            GUI.AddElement(VisAND);
+            var pb = VisAND.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
             //pb.Paint += PicBox_Paint;
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);           
+        }
+
+
+
+
+
+        //private void PicBox_Paint(object sender, PaintEventArgs e)
+        //{
+        //    base.OnPaint(e);
+        //}
+
+        private void bNand_Click(object sender, EventArgs e)
+        {
+            var VisNAND = new GUI.Visual.NAND();
+            GUI.AddElement(VisNAND);
+            var pb = VisNAND.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
+        }
+
+        private void bOr_Click(object sender, EventArgs e)
+        {
+            var VisOR = new GUI.Visual.OR();
+            GUI.AddElement(VisOR);
+            var pb = VisOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
+        }
+
+        private void bNor_Click(object sender, EventArgs e)
+        {
+            var VisNOR = new GUI.Visual.NOR();
+            GUI.AddElement(VisNOR);
+            var pb = VisNOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
             pb.MouseEnter += PicBox_MouseEnter;
             pb.MouseLeave += PicBox_MouseLeave;
             pb.MouseDown += PicBox_MouseDown;
@@ -131,19 +230,101 @@ namespace LogicCircuitSimulator
             if (pb.Bottom > panel1.Bottom)
                 pb.Top = (panel1.Bottom + pb.Height);
 
-            if (pb != null)
-            {
-                PictureBoxes.Add(e.GetHashCode(), pb);
-                panel1.Controls.Add(pb);
-            }
         }
 
+        private void bXor_Click(object sender, EventArgs e)
+        {
+            var VisXOR = new GUI.Visual.XOR();
+            GUI.AddElement(VisXOR);
+            var pb = VisXOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
 
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
+        }
+
+        private void bXnor_Click(object sender, EventArgs e)
+        {
+            var VisXNOR = new GUI.Visual.XNOR();
+            GUI.AddElement(VisXNOR);
+            var pb = VisXNOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
+
+        }
+
+        private void bBuf_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void bInv_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bInPort_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bOutPort_Click(object sender, EventArgs e)
+        {
+            /*var velement = new VisualElement(VisualElement.Elements.OTerm);
+            VisualElements.Add(e.GetHashCode(), velement);
+            var OutTer = new OutTerminal();
+            Circuit.AddElement(OutTer);
+            PictureBox pb = new PictureBox
+            {
+                Name = "OTer",
+                Location = new Point(100, 100),
+                Image = velement.GetImage(VisualElement.Elements.OTerm)
+            };
+
+            PictureBoxes.Add(e.GetHashCode(), pb);
+            panel1.Controls.Add(pb);*/
+        }
 
         private void PicPox_Move(object sender, EventArgs e)
         {
             //int _senderTag = (int)(((PictureBox)sender).Tag);
-                panel1.Invalidate();
+            panel1.Invalidate();
         }
 
         private void PicBox_MouseMove(object sender, MouseEventArgs e)
@@ -190,71 +371,6 @@ namespace LogicCircuitSimulator
             {
                 ReceiveingControlTag = (int)(((Control)sender).Tag);
             }
-        }
-
-        //private void PicBox_Paint(object sender, PaintEventArgs e)
-        //{
-        //    base.OnPaint(e);
-        //}
-
-        private void bNand_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void bOr_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void bNor_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void bXor_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void bXnor_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void bBuf_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void bInv_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void bInPort_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void bOutPort_Click(object sender, EventArgs e)
-        {
-            /*var velement = new VisualElement(VisualElement.Elements.OTerm);
-            VisualElements.Add(e.GetHashCode(), velement);
-            var OutTer = new OutTerminal();
-            Circuit.AddElement(OutTer);
-            PictureBox pb = new PictureBox
-            {
-                Name = "OTer",
-                Location = new Point(100, 100),
-                Image = velement.GetImage(VisualElement.Elements.OTerm)
-            };
-
-            PictureBoxes.Add(e.GetHashCode(), pb);
-            panel1.Controls.Add(pb);*/
         }
 
         private void bClear_Click(object sender, EventArgs e)
