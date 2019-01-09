@@ -17,7 +17,7 @@ namespace LogicCircuitSimulator
             InitializeComponent();
             Circuit = new Circuit();
             graphics = panel1.CreateGraphics();
-            VisualElements = new Dictionary<int, VisualElementDeprecated>();
+            VisualElements = new Dictionary<int, GUI.Visual.Element>();
             PictureBoxes = new Dictionary<int, PictureBox>();
         }
 
@@ -52,7 +52,7 @@ namespace LogicCircuitSimulator
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
+            GUI.g_graphics = e.Graphics;
             int w = panel1.Width;
             int h = panel1.Height;
             Pen blackpen = new Pen(Color.Black)
@@ -60,11 +60,11 @@ namespace LogicCircuitSimulator
                 Width = 2
             };
             Brush whitebrush = new SolidBrush(Color.White);
-            g.DrawRectangle(blackpen, 220, 50, w, h);
+            GUI.g_graphics.DrawRectangle(blackpen, 220, 50, w, h);
             //g.FillRectangle(whitebrush, 220, 50, w, h);
             //whitebrush.Dispose();
             blackpen.Dispose();
-            g.Dispose();
+            GUI.g_graphics.Dispose();
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -75,9 +75,9 @@ namespace LogicCircuitSimulator
         private Circuit Circuit;
         private Graphics graphics;
 
-        private Dictionary<int, VisualElementDeprecated> VisualElements; //Key = Element ID
+        private Dictionary<int, GUI.Visual.Element> VisualElements; //Key = Element ID
         private Dictionary<int, PictureBox> PictureBoxes;      //Key = Element ID
-        private List<Tuple<VisualElementDeprecated, VisualElementDeprecated>> Connections; // A -> B
+        private List<Tuple<GUI.Visual.Element, GUI.Visual.Element>> Connections; // A -> B
 
         private bool MouseDownOnSelectedPicBox = false;
         private Point MouseDownLocation;
@@ -110,14 +110,9 @@ namespace LogicCircuitSimulator
 
         private void bAnd_Click(object sender, EventArgs e)
         {
-            GUI.ConnectableImages.AND2 and2_image_data = new GUI.ConnectableImages.AND2();
-            PictureBox pb = new PictureBox
-            {
-                Name = "And",
-                Location = new Point(100, 100),
-                Image = and2_image_data.Image
-
-            };
+            var AND = new GUI.Visual.AND();
+            GUI.AddElement(AND);
+            var pb = AND.PictureBox;
             //pb.Paint += PicBox_Paint;
             pb.MouseEnter += PicBox_MouseEnter;
             pb.MouseLeave += PicBox_MouseLeave;
