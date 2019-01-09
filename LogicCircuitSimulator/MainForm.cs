@@ -15,10 +15,6 @@ namespace LogicCircuitSimulator
         public MainForm()
         {
             InitializeComponent();
-            Circuit = new Circuit();
-            graphics = panel1.CreateGraphics();
-            VisualElements = new Dictionary<int, GUI.Visual.Element>();
-            PictureBoxes = new Dictionary<int, PictureBox>();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -72,13 +68,6 @@ namespace LogicCircuitSimulator
             Invalidate();
         }
 
-        private Circuit Circuit;
-        private Graphics graphics;
-
-        private Dictionary<int, GUI.Visual.Element> VisualElements; //Key = Element ID
-        private Dictionary<int, PictureBox> PictureBoxes;      //Key = Element ID
-        private List<Tuple<GUI.Visual.Element, GUI.Visual.Element>> Connections; // A -> B
-
         private bool MouseDownOnSelectedPicBox = false;
         private Point MouseDownLocation;
 
@@ -88,13 +77,13 @@ namespace LogicCircuitSimulator
 
         private void bNext_Click(object sender, EventArgs e)
         {
-            Circuit.NextMoment();
+            GUI.g_circuit.NextMoment();
             Invalidate();
         }
 
         private void bStart_Click(object sender, EventArgs e)
         {
-            Circuit.SimulateFor(100);
+            GUI.g_circuit.SimulateFor(100);
             Invalidate();
         }
 
@@ -115,7 +104,6 @@ namespace LogicCircuitSimulator
             var pb = VisAND.picture_box;
             if (pb != null)
             {
-                PictureBoxes.Add(pb.GetHashCode(), pb);
                 panel1.Controls.Add(pb);
             }
             //pb.Paint += PicBox_Paint;
@@ -138,7 +126,6 @@ namespace LogicCircuitSimulator
 
             if (pb != null)
             {
-                PictureBoxes.Add(e.GetHashCode(), pb);
                 panel1.Controls.Add(pb);
             }
         }
@@ -209,7 +196,6 @@ namespace LogicCircuitSimulator
             var pb = VisNAND.picture_box;
             if (pb != null)
             {
-                PictureBoxes.Add(pb.GetHashCode(), pb);
                 panel1.Controls.Add(pb);
             }
             pb.MouseEnter += PicBox_MouseEnter;
@@ -237,7 +223,6 @@ namespace LogicCircuitSimulator
             var pb = VisOR.picture_box;
             if (pb != null)
             {
-                PictureBoxes.Add(pb.GetHashCode(), pb);
                 panel1.Controls.Add(pb);
             }
             pb.MouseEnter += PicBox_MouseEnter;
@@ -265,7 +250,6 @@ namespace LogicCircuitSimulator
             var pb = VisNOR.picture_box;
             if (pb != null)
             {
-                PictureBoxes.Add(pb.GetHashCode(), pb);
                 panel1.Controls.Add(pb);
             }
             pb.MouseEnter += PicBox_MouseEnter;
@@ -293,7 +277,6 @@ namespace LogicCircuitSimulator
             var pb = VisXOR.picture_box;
             if (pb != null)
             {
-                PictureBoxes.Add(pb.GetHashCode(), pb);
                 panel1.Controls.Add(pb);
             }
             pb.MouseEnter += PicBox_MouseEnter;
@@ -321,7 +304,6 @@ namespace LogicCircuitSimulator
             var pb = VisXNOR.picture_box;
             if (pb != null)
             {
-                PictureBoxes.Add(pb.GetHashCode(), pb);
                 panel1.Controls.Add(pb);
             }
             pb.MouseEnter += PicBox_MouseEnter;
@@ -359,19 +341,7 @@ namespace LogicCircuitSimulator
 
         private void bOutPort_Click(object sender, EventArgs e)
         {
-            /*var velement = new VisualElement(VisualElement.Elements.OTerm);
-            VisualElements.Add(e.GetHashCode(), velement);
-            var OutTer = new OutTerminal();
-            Circuit.AddElement(OutTer);
-            PictureBox pb = new PictureBox
-            {
-                Name = "OTer",
-                Location = new Point(100, 100),
-                Image = velement.GetImage(VisualElement.Elements.OTerm)
-            };
 
-            PictureBoxes.Add(e.GetHashCode(), pb);
-            panel1.Controls.Add(pb);*/
         }
 
         private void bClear_Click(object sender, EventArgs e)
@@ -382,13 +352,8 @@ namespace LogicCircuitSimulator
                               , MessageBoxIcon.Exclamation
                         ) == DialogResult.OK)
             {
-                VisualElements.Clear();
-                //OutputPorts.Clear();
-                //Connections.Clear();
-                PictureBoxes.Clear();
-
                 panel1.Controls.Clear();
-                graphics.Clear(panel1.BackColor);
+                GUI.g_graphics.Clear(panel1.BackColor);
             }
         }
 
