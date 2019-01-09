@@ -1023,8 +1023,35 @@ namespace LogicCircuitSimulator
         {
             public abstract class Element
             {
-                public LogicCircuitSimulator.Element LogicElement { get; protected set; }
-                public ConnectableImages.ConnectableImage ImageData { get; protected set; }
+                public LogicCircuitSimulator.Element LogicElement { get; }
+                public ConnectableImages.ConnectableImage ImageData { get; }
+
+                protected LogicCircuitSimulator.Element logic_element;
+                protected ConnectableImages.ConnectableImage image_data;
+            }
+
+            public abstract class Gate : Element
+            {
+                protected Gate()
+                    : base()
+                { }
+            }
+
+            public abstract class MultipleInputGate : Gate
+            {
+                protected MultipleInputGate()
+                    : base()
+                { }
+            }
+
+            public class AND : MultipleInputGate
+            {
+                public AND()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.AND();
+                    image_data = new ConnectableImages.AND2();
+                }
             }
         }
     }
