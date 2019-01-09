@@ -101,7 +101,7 @@ namespace LogicCircuitSimulator
         {
             var VisAND = new GUI.Visual.AND();
             GUI.AddElement(VisAND);
-            var pb = VisAND.picture_box;
+            var pb = VisAND.PictureBox;
             if (pb != null)
             {
                 panel1.Controls.Add(pb);
@@ -193,7 +193,7 @@ namespace LogicCircuitSimulator
         {
             var VisNAND = new GUI.Visual.NAND();
             GUI.AddElement(VisNAND);
-            var pb = VisNAND.picture_box;
+            var pb = VisNAND.PictureBox;
             if (pb != null)
             {
                 panel1.Controls.Add(pb);
@@ -220,7 +220,7 @@ namespace LogicCircuitSimulator
         {
             var VisOR = new GUI.Visual.OR();
             GUI.AddElement(VisOR);
-            var pb = VisOR.picture_box;
+            var pb = VisOR.PictureBox;
             if (pb != null)
             {
                 panel1.Controls.Add(pb);
@@ -247,7 +247,7 @@ namespace LogicCircuitSimulator
         {
             var VisNOR = new GUI.Visual.NOR();
             GUI.AddElement(VisNOR);
-            var pb = VisNOR.picture_box;
+            var pb = VisNOR.PictureBox;
             if (pb != null)
             {
                 panel1.Controls.Add(pb);
@@ -274,7 +274,7 @@ namespace LogicCircuitSimulator
         {
             var VisXOR = new GUI.Visual.XOR();
             GUI.AddElement(VisXOR);
-            var pb = VisXOR.picture_box;
+            var pb = VisXOR.PictureBox;
             if (pb != null)
             {
                 panel1.Controls.Add(pb);
@@ -301,7 +301,7 @@ namespace LogicCircuitSimulator
         {
             var VisXNOR = new GUI.Visual.XNOR();
             GUI.AddElement(VisXNOR);
-            var pb = VisXNOR.picture_box;
+            var pb = VisXNOR.PictureBox;
             if (pb != null)
             {
                 panel1.Controls.Add(pb);
@@ -353,7 +353,6 @@ namespace LogicCircuitSimulator
                         ) == DialogResult.OK)
             {
                 panel1.Controls.Clear();
-                GUI.g_graphics.Clear(panel1.BackColor);
             }
         }
 
