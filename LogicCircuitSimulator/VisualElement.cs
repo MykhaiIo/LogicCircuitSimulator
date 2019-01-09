@@ -700,36 +700,55 @@ namespace LogicCircuitSimulator
 
             public class AND2 : IConnectableImage
             {
-                public AND2() {}
-                private Bitmap image = Properties.Resources._2AND;
-                Point[] input_points = { new Point(0, 10), new Point(0, 20) };
-                Point[] output_points = { new Point(40, 15) };
-
-                public Bitmap Image { get { return image; } }
-                public Point[] InputPoints { get { return input_points; } }
-                public Point[] OutputPoints { get { return output_points; } }
+                public Bitmap Image { get; } = Properties.Resources._2AND;
+                public Point[] InputPoints { get; } = { new Point(0, 10), new Point(0, 20) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
             }
 
             public class AND3 : IConnectableImage
             {
-                private Bitmap image = Properties.Resources._3AND;
-                Point[] input_points = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
-                Point[] output_points = { new Point(40, 15) };
-
-                public Bitmap Image { get { return image; } }
-                public Point[] InputPoints { get { return input_points; } }
-                public Point[] OutputPoints { get { return output_points; } }
+                public Bitmap Image { get; } = Properties.Resources._3AND;
+                public Point[] InputPoints { get; } = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
             }
 
             public class AND4 : IConnectableImage
             {
-                private Bitmap image = Properties.Resources._3AND;
-                Point[] input_points = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
-                Point[] output_points = { new Point(40, 15) };
+                public Bitmap Image { get; } = Properties.Resources._4AND;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
 
-                public Bitmap Image { get { return image; } }
-                public Point[] InputPoints { get { return input_points; } }
-                public Point[] OutputPoints { get { return output_points; } }
+            public class AND5 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._5AND;
+                public Point[] InputPoints { get; } = { new Point(0, 4), new Point(0, 10),
+                                                        new Point(0, 16), new Point(0, 22), new Point(0, 27) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class AND6 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._6AND;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 18),
+                                                        new Point(0, 24), new Point(0, 29), new Point(0, 35) };
+                public Point[] OutputPoints { get; } = { new Point(40, 20) };
+            }
+
+            public class AND7 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._7AND;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 18),
+                                                        new Point(0, 23), new Point(0, 28), new Point(0, 34), new Point(0, 39) };
+                public Point[] OutputPoints { get; } = { new Point(40, 23) };
+            }
+
+            public class AND8 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._8AND;
+                public Point[] InputPoints { get; } = { new Point(0, 4), new Point(0, 10), new Point(0, 16), new Point(0, 21),
+                                                        new Point(0, 26), new Point(0, 32), new Point(0, 37), new Point(0, 42) };
+                public Point[] OutputPoints { get; } = { new Point(40, 24) };
             }
         }
     }
