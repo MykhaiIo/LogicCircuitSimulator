@@ -678,6 +678,10 @@ namespace LogicCircuitSimulator
         public static ConnectableImages.AND2 and2_image_data;
         public static ConnectableImages.AND3 and3_image_data;
         public static ConnectableImages.AND4 and4_image_data;
+        public static ConnectableImages.AND5 and5_image_data;
+        public static ConnectableImages.AND6 and6_image_data;
+        public static ConnectableImages.AND7 and7_image_data;
+        public static ConnectableImages.AND8 and8_image_data;
 
         public static void DrawActiveLine(PointF p1, PointF p2)
         {
