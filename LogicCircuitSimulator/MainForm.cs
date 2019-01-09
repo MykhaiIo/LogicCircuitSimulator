@@ -353,7 +353,6 @@ namespace LogicCircuitSimulator
                         ) == DialogResult.OK)
             {
                 panel1.Controls.Clear();
-                GUI.g_graphics.Clear(panel1.BackColor);
             }
         }
 
