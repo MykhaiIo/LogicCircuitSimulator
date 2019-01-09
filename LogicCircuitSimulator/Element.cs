@@ -54,6 +54,10 @@ namespace LogicCircuitSimulator
             }
             return false;
         }
+
+        public List<Pin> InputPins { get { return input_pins; } }
+
+        public List<Pin> OutputPins { get { return output_pins; } }
     }
 
     abstract class Terminal : Element
