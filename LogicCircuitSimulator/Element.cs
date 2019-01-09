@@ -13,8 +13,6 @@ namespace LogicCircuitSimulator
             output_pins = new List<Pin>();
         }
 
-        public int Delay { get; set; }
-
         public abstract void Functionality();
 
         public List<Pin> GetPinsBySide(PinSide side)
@@ -74,7 +72,6 @@ namespace LogicCircuitSimulator
         {
             input_pins.Clear();
             output_pins.Add(new Pin(PinSide.OUTPUT));
-            Delay = 0;
         }
 
         public override void Functionality()
@@ -92,7 +89,6 @@ namespace LogicCircuitSimulator
         {
             input_pins.Add(new Pin(PinSide.INPUT));
             output_pins.Clear();
-            Delay = 0;
             SimulationResult = new Logic(LogicValue.UNINITIALIZED);
         }
 
@@ -112,7 +108,6 @@ namespace LogicCircuitSimulator
         {
             input_pins.Add(new Pin(PinSide.INPUT));
             output_pins.Add(new Pin(PinSide.OUTPUT));
-            Delay = 0;
         }
     }
 
