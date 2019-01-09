@@ -686,6 +686,11 @@ namespace LogicCircuitSimulator
             g_graphics.DrawLine(Pens.Black, p1, p2);
         }
 
+        public static void DrawConnection(Visual.Element el1, Visual.Element el2)
+        {
+            //GUI.DrawActiveLine(el1.LogicElement)
+        }
+
         public class ConnectableImages
         {
             abstract public class ConnectableImage

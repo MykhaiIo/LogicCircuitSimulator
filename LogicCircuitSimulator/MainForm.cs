@@ -52,16 +52,19 @@ namespace LogicCircuitSimulator
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            GUI.g_graphics = e.Graphics;
+            Graphics g = e.Graphics;
             int w = panel1.Width;
             int h = panel1.Height;
             Pen blackpen = new Pen(Color.Black)
             {
                 Width = 2
             };
-            GUI.g_graphics.DrawRectangle(blackpen, 220, 50, w, h);
+            Brush whitebrush = new SolidBrush(Color.White);
+            g.DrawRectangle(blackpen, 220, 50, w, h);
+            //g.FillRectangle(whitebrush, 220, 50, w, h);
+            //whitebrush.Dispose();
             blackpen.Dispose();
-            GUI.g_graphics.Dispose();
+            g.Dispose();
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -107,9 +110,97 @@ namespace LogicCircuitSimulator
 
         private void bAnd_Click(object sender, EventArgs e)
         {
-            
+            GUI.ConnectableImages.AND2 and2_image_data = new GUI.ConnectableImages.AND2();
+            PictureBox pb = new PictureBox
+            {
+                Name = "And",
+                Location = new Point(100, 100),
+                Image = and2_image_data.Image
 
+            };
+            //pb.Paint += PicBox_Paint;
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
+
+            if (pb != null)
+            {
+                PictureBoxes.Add(e.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
         }
+
+
+
+        private void PicPox_Move(object sender, EventArgs e)
+        {
+            //int _senderTag = (int)(((PictureBox)sender).Tag);
+                panel1.Invalidate();
+        }
+
+        private void PicBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left
+            && MouseDownOnSelectedPicBox
+            )
+            {
+                ((PictureBox)sender).Cursor = Cursors.SizeAll;
+                ((PictureBox)sender).Left = e.X + ((PictureBox)sender).Left - MouseDownLocation.X;
+                ((PictureBox)sender).Top = e.Y + ((PictureBox)sender).Top - MouseDownLocation.Y;
+            }
+        }
+
+        private void PicBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            if ((sender as PictureBox).Cursor != Cursors.Default)
+                (sender as PictureBox).Cursor = Cursors.Default;
+
+            MouseDownOnSelectedPicBox = false;
+        }
+
+        private void PicBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownOnSelectedPicBox = true;
+
+                MouseDownLocation = e.Location;
+            }
+        }
+
+        private void PicBox_MouseLeave(object sender, EventArgs e)
+        {
+            if (ModifierKeys == Keys.Control && Connecting)
+            {
+                ReceiveingControlTag = -1;
+            }
+        }
+
+        private void PicBox_MouseEnter(object sender, EventArgs e)
+        {
+            if (ModifierKeys == Keys.Control && Connecting)
+            {
+                ReceiveingControlTag = (int)(((Control)sender).Tag);
+            }
+        }
+
+        //private void PicBox_Paint(object sender, PaintEventArgs e)
+        //{
+        //    base.OnPaint(e);
+        //}
 
         private void bNand_Click(object sender, EventArgs e)
         {
