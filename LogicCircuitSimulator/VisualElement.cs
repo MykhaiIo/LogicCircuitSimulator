@@ -450,15 +450,16 @@ namespace LogicCircuitSimulator
 
             public abstract class Element
             {
-                public LogicCircuitSimulator.Element LogicElement { get; }
-                public ConnectableImages.ConnectableImage ImageData { get; }
-                public System.Windows.Forms.PictureBox PictureBox { get; }
+                public LogicCircuitSimulator.Element LogicElement { get { return logic_element; } }
+                public ConnectableImages.ConnectableImage ImageData { get { return image_data; } }
+                public System.Windows.Forms.PictureBox PictureBox { get { return picture_box; } }
+                public virtual string Identificator { get; }
                 public List<Visual.Pin> InputPins = new List<Pin>();
                 public List<Visual.Pin> OutputPins = new List<Pin>();
 
-                public System.Windows.Forms.PictureBox picture_box;
+                protected System.Windows.Forms.PictureBox picture_box;
                 protected LogicCircuitSimulator.Element logic_element;
-                public ConnectableImages.ConnectableImage image_data;
+                protected ConnectableImages.ConnectableImage image_data;
             }
 
             public abstract class Gate : Element
@@ -501,6 +502,8 @@ namespace LogicCircuitSimulator
                         Image = image_data.Image
                     };
                 }
+
+                public override string Identificator { get => ($"AND X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
 
             public class NAND : MultipleInputGate
@@ -522,6 +525,8 @@ namespace LogicCircuitSimulator
                         Image = image_data.Image
                     };
                 }
+
+                public override string Identificator { get => ($"NAND X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
 
             public class OR : MultipleInputGate
@@ -543,6 +548,8 @@ namespace LogicCircuitSimulator
                         Image = image_data.Image
                     };
                 }
+
+                public override string Identificator { get => ($"OR X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
 
             public class NOR : MultipleInputGate
@@ -564,6 +571,8 @@ namespace LogicCircuitSimulator
                         Image = image_data.Image
                     };
                 }
+
+                public override string Identificator { get => ($"NOR X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
 
             public class XOR : MultipleInputGate
@@ -585,6 +594,8 @@ namespace LogicCircuitSimulator
                         Image = image_data.Image
                     };
                 }
+
+                public override string Identificator { get => ($"XOR X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
 
             public class XNOR : MultipleInputGate
@@ -606,6 +617,8 @@ namespace LogicCircuitSimulator
                         Image = image_data.Image
                     };
                 }
+
+                public override string Identificator { get => ($"XNOR X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
 
             public class NOT : SingleInputGate
@@ -626,6 +639,8 @@ namespace LogicCircuitSimulator
                         Image = image_data.Image
                     };
                 }
+
+                public override string Identificator { get => ($"NOT X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
         }
     }
