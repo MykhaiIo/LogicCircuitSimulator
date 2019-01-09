@@ -7,6 +7,8 @@ namespace LogicCircuitSimulator
         private List<Element> elements;
         private Dictionary<Pin, Pin> port_map;
 
+        public Dictionary<Pin, Pin> Connections { get { return port_map; } }
+
         public Circuit()
         {
             elements = new List<Element>();
