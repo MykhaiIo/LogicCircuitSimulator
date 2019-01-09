@@ -675,13 +675,23 @@ namespace LogicCircuitSimulator
     static class GUI
     {
         public static Graphics g_graphics;
-        public static ConnectableImages.AND2 and2_image_data;
-        public static ConnectableImages.AND3 and3_image_data;
-        public static ConnectableImages.AND4 and4_image_data;
-        public static ConnectableImages.AND5 and5_image_data;
-        public static ConnectableImages.AND6 and6_image_data;
-        public static ConnectableImages.AND7 and7_image_data;
-        public static ConnectableImages.AND8 and8_image_data;
+        public static ConnectableImages.AND2 and2_image_data = new ConnectableImages.AND2();
+        public static ConnectableImages.NAND2 nand2_image_data = new ConnectableImages.NAND2();
+        public static ConnectableImages.OR2 or2_image_data = new ConnectableImages.OR2();
+        public static ConnectableImages.NOR2 nor2_image_data = new ConnectableImages.NOR2();
+        public static ConnectableImages.XOR2 xor2_image_data = new ConnectableImages.XOR2();
+        public static ConnectableImages.XNOR2 xnor2_image_data = new ConnectableImages.XNOR2();
+        public static ConnectableImages.AND3 and3_image_data = new ConnectableImages.AND3();
+        public static ConnectableImages.NAND3 nand3_image_data = new ConnectableImages.NAND3();
+        public static ConnectableImages.OR3 or3_image_data = new ConnectableImages.OR3();
+        public static ConnectableImages.NOR3 nor3_image_data = new ConnectableImages.NOR3();
+        public static ConnectableImages.XOR3 xor3_image_data = new ConnectableImages.XOR3();
+        public static ConnectableImages.XNOR3 xnor3_image_data = new ConnectableImages.XNOR3();
+        public static ConnectableImages.AND4 and4_image_data = new ConnectableImages.AND4();
+        public static ConnectableImages.AND5 and5_image_data = new ConnectableImages.AND5();
+        public static ConnectableImages.AND6 and6_image_data = new ConnectableImages.AND6();
+        public static ConnectableImages.AND7 and7_image_data = new ConnectableImages.AND7();
+        public static ConnectableImages.AND8 and8_image_data = new ConnectableImages.AND8();
 
         public static void DrawActiveLine(PointF p1, PointF p2)
         {
@@ -709,6 +719,41 @@ namespace LogicCircuitSimulator
                 public Point[] OutputPoints { get; } = { new Point(40, 15) };
             }
 
+            public class NAND2 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._2NAND;
+                public Point[] InputPoints { get; } = { new Point(0, 10), new Point(0, 20) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class OR2 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._2OR;
+                public Point[] InputPoints { get; } = { new Point(0, 10), new Point(0, 20) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class NOR2 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._2NOR;
+                public Point[] InputPoints { get; } = { new Point(0, 10), new Point(0, 20) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class XOR2 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._2XOR;
+                public Point[] InputPoints { get; } = { new Point(0, 10), new Point(0, 20) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class XNOR2 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._2XNOR;
+                public Point[] InputPoints { get; } = { new Point(0, 10), new Point(0, 20) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
             public class AND3 : IConnectableImage
             {
                 public Bitmap Image { get; } = Properties.Resources._3AND;
@@ -716,9 +761,79 @@ namespace LogicCircuitSimulator
                 public Point[] OutputPoints { get; } = { new Point(40, 15) };
             }
 
+            public class NAND3 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._3NAND;
+                public Point[] InputPoints { get; } = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class OR3 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._3OR;
+                public Point[] InputPoints { get; } = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class NOR3 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._3NOR;
+                public Point[] InputPoints { get; } = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class XOR3 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._3XOR;
+                public Point[] InputPoints { get; } = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class XNOR3 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._3XNOR;
+                public Point[] InputPoints { get; } = { new Point(0, 8), new Point(0, 15), new Point(0, 23) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
             public class AND4 : IConnectableImage
             {
                 public Bitmap Image { get; } = Properties.Resources._4AND;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class NAND4 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._4NAND;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class OR4 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._4OR;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class NOR4 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._4NOR;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class XOR4 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._4XOR;
+                public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
+                public Point[] OutputPoints { get; } = { new Point(40, 15) };
+            }
+
+            public class XNOR4 : IConnectableImage
+            {
+                public Bitmap Image { get; } = Properties.Resources._4XNOR;
                 public Point[] InputPoints { get; } = { new Point(0, 6), new Point(0, 12), new Point(0, 19), new Point(0, 25) };
                 public Point[] OutputPoints { get; } = { new Point(40, 15) };
             }
