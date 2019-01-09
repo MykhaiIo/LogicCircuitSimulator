@@ -17,7 +17,7 @@ namespace LogicCircuitSimulator
             InitializeComponent();
             Circuit = new Circuit();
             graphics = panel1.CreateGraphics();
-            VisualElements = new Dictionary<int, VisualElement>();
+            VisualElements = new Dictionary<int, VisualElementDeprecated>();
             PictureBoxes = new Dictionary<int, PictureBox>();
         }
 
@@ -72,9 +72,9 @@ namespace LogicCircuitSimulator
         private Circuit Circuit;
         private Graphics graphics;
 
-        private Dictionary<int, VisualElement> VisualElements; //Key = Element ID
+        private Dictionary<int, VisualElementDeprecated> VisualElements; //Key = Element ID
         private Dictionary<int, PictureBox> PictureBoxes;      //Key = Element ID
-        private List<Tuple<VisualElement, VisualElement>> Connections; // A -> B
+        private List<Tuple<VisualElementDeprecated, VisualElementDeprecated>> Connections; // A -> B
 
         private bool MouseDownOnSelectedPicBox = false;
         private Point MouseDownLocation;

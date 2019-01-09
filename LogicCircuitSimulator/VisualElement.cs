@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 
 namespace LogicCircuitSimulator
 {
-    abstract class VisualElement
+    abstract class VisualElementDeprecated
     {
         public enum Elements
         {
@@ -28,7 +28,7 @@ namespace LogicCircuitSimulator
         public Bitmap ElementImage { get; private set; }
         protected Element Element { get; private set; }
 
-        protected VisualElement()
+        protected VisualElementDeprecated()
         {
             visual_input_pins = new List<Point>();
             visual_output_pins = new List<Point>();
@@ -37,7 +37,7 @@ namespace LogicCircuitSimulator
 
         
 
-    abstract class VisualTerminal : VisualElement
+    abstract class VisualTerminal : VisualElementDeprecated
     {
         protected VisualTerminal()
             : base()
@@ -69,7 +69,7 @@ namespace LogicCircuitSimulator
             }
     }
 
-    abstract class VisualGate : VisualElement
+    abstract class VisualGate : VisualElementDeprecated
     {
         protected VisualGate()
             : base()
