@@ -1048,6 +1048,56 @@ namespace LogicCircuitSimulator
                     image_data = new ConnectableImages.AND2();
                 }
             }
+
+            public class NAND : MultipleInputGate
+            {
+                public NAND()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.NAND();
+                    image_data = new ConnectableImages.NAND2();
+                }
+            }
+
+            public class OR : MultipleInputGate
+            {
+                public OR()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.OR();
+                    image_data = new ConnectableImages.OR2();
+                }
+            }
+
+            public class NOR : MultipleInputGate
+            {
+                public NOR()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.NOR();
+                    image_data = new ConnectableImages.NOR2();
+                }
+            }
+
+            public class XOR : MultipleInputGate
+            {
+                public XOR()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.XOR();
+                    image_data = new ConnectableImages.XOR2();
+                }
+            }
+
+            public class XNOR : MultipleInputGate
+            {
+                public XNOR()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.XNOR();
+                    image_data = new ConnectableImages.XNOR2();
+                }
+            }
         }
     }
 }
