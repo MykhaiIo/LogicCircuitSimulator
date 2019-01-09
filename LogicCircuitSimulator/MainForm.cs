@@ -110,9 +110,14 @@ namespace LogicCircuitSimulator
 
         private void bAnd_Click(object sender, EventArgs e)
         {
-            var AND = new GUI.Visual.AND();
-            GUI.AddElement(AND);
-            var pb = AND.PictureBox;
+            var VisAND = new GUI.Visual.AND();
+            GUI.AddElement(VisAND);
+            var pb = VisAND.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
             //pb.Paint += PicBox_Paint;
             pb.MouseEnter += PicBox_MouseEnter;
             pb.MouseLeave += PicBox_MouseLeave;
@@ -199,30 +204,142 @@ namespace LogicCircuitSimulator
 
         private void bNand_Click(object sender, EventArgs e)
         {
-            
+            var VisNAND = new GUI.Visual.NAND();
+            GUI.AddElement(VisNAND);
+            var pb = VisNAND.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
 
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bOr_Click(object sender, EventArgs e)
         {
-            
+            var VisOR = new GUI.Visual.OR();
+            GUI.AddElement(VisOR);
+            var pb = VisOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bNor_Click(object sender, EventArgs e)
         {
-            
+            var VisNOR = new GUI.Visual.NOR();
+            GUI.AddElement(VisNOR);
+            var pb = VisNOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
 
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bXor_Click(object sender, EventArgs e)
         {
-            
+            var VisXOR = new GUI.Visual.XOR();
+            GUI.AddElement(VisXOR);
+            var pb = VisXOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bXnor_Click(object sender, EventArgs e)
         {
-            
+            var VisXNOR = new GUI.Visual.XNOR();
+            GUI.AddElement(VisXNOR);
+            var pb = VisXNOR.picture_box;
+            if (pb != null)
+            {
+                PictureBoxes.Add(pb.GetHashCode(), pb);
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
 
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bBuf_Click(object sender, EventArgs e)
