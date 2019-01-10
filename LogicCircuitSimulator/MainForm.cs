@@ -12,9 +12,14 @@ namespace LogicCircuitSimulator
 {
     public partial class MainForm : Form
     {
+        
         public MainForm()
         {
             InitializeComponent();
+
+            
+            
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -361,6 +366,19 @@ namespace LogicCircuitSimulator
 
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var frm2 = new CreateConnectionDialog();
+            DialogResult dr = frm2.ShowDialog(this);
+            if (dr == DialogResult.Cancel)
+            {
+                frm2.Close();
+            }
+            else if (dr == DialogResult.OK)
+            {
+                //textBox1.Text = frm2.getText();
+                frm2.Close();
+            }
+        }
     }
 }

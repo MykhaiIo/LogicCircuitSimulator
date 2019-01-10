@@ -76,6 +76,7 @@ namespace LogicCircuitSimulator
             this.bInv = new System.Windows.Forms.Button();
             this.bInPort = new System.Windows.Forms.Button();
             this.bOutPort = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -135,20 +136,20 @@ namespace LogicCircuitSimulator
             // 
             this.newProjectToolStripMenuItem.Enabled = false;
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.newProjectToolStripMenuItem.Text = "New Project";
             // 
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Enabled = false;
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.openProjectToolStripMenuItem.Text = "Open Project";
             // 
             // saveProjectToolStripMenuItem
             // 
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveProjectToolStripMenuItem.Text = "Save Project";
             // 
             // editToolStripMenuItem
@@ -191,14 +192,14 @@ namespace LogicCircuitSimulator
             // stopSimulationToolStripMenuItem
             // 
             this.stopSimulationToolStripMenuItem.Name = "stopSimulationToolStripMenuItem";
-            this.stopSimulationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.stopSimulationToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.stopSimulationToolStripMenuItem.Text = "Start Simulation";
             this.stopSimulationToolStripMenuItem.Click += new System.EventHandler(this.stopSimulationToolStripMenuItem_Click);
             // 
             // stopSimulationToolStripMenuItem1
             // 
             this.stopSimulationToolStripMenuItem1.Name = "stopSimulationToolStripMenuItem1";
-            this.stopSimulationToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.stopSimulationToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.stopSimulationToolStripMenuItem1.Text = "Stop Simulation";
             // 
             // windowToolStripMenuItem
@@ -217,7 +218,7 @@ namespace LogicCircuitSimulator
             // 
             this.fullscreenToolStripMenuItem.Enabled = false;
             this.fullscreenToolStripMenuItem.Name = "fullscreenToolStripMenuItem";
-            this.fullscreenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fullscreenToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.fullscreenToolStripMenuItem.Text = "Fullscreen";
             // 
             // toolStripSeparator1
@@ -258,7 +259,7 @@ namespace LogicCircuitSimulator
             // 
             this.helpToolStripMenuItem1.Enabled = false;
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
             // toolStripSeparator2
@@ -386,7 +387,7 @@ namespace LogicCircuitSimulator
             // bAnd
             // 
             this.bAnd.Image = global::LogicCircuitSimulator.Properties.Resources._2AND;
-            this.bAnd.Location = new System.Drawing.Point(48, 268);
+            this.bAnd.Location = new System.Drawing.Point(48, 251);
             this.bAnd.Name = "bAnd";
             this.bAnd.Size = new System.Drawing.Size(50, 40);
             this.bAnd.TabIndex = 20;
@@ -396,7 +397,7 @@ namespace LogicCircuitSimulator
             // bNand
             // 
             this.bNand.Image = global::LogicCircuitSimulator.Properties.Resources._2NAND;
-            this.bNand.Location = new System.Drawing.Point(104, 268);
+            this.bNand.Location = new System.Drawing.Point(104, 251);
             this.bNand.Name = "bNand";
             this.bNand.Size = new System.Drawing.Size(50, 40);
             this.bNand.TabIndex = 21;
@@ -406,7 +407,7 @@ namespace LogicCircuitSimulator
             // bOr
             // 
             this.bOr.Image = global::LogicCircuitSimulator.Properties.Resources._2OR;
-            this.bOr.Location = new System.Drawing.Point(48, 329);
+            this.bOr.Location = new System.Drawing.Point(48, 312);
             this.bOr.Name = "bOr";
             this.bOr.Size = new System.Drawing.Size(50, 40);
             this.bOr.TabIndex = 22;
@@ -416,7 +417,7 @@ namespace LogicCircuitSimulator
             // bNor
             // 
             this.bNor.Image = global::LogicCircuitSimulator.Properties.Resources._2NOR;
-            this.bNor.Location = new System.Drawing.Point(104, 329);
+            this.bNor.Location = new System.Drawing.Point(104, 312);
             this.bNor.Name = "bNor";
             this.bNor.Size = new System.Drawing.Size(50, 40);
             this.bNor.TabIndex = 23;
@@ -426,7 +427,7 @@ namespace LogicCircuitSimulator
             // bXor
             // 
             this.bXor.Image = global::LogicCircuitSimulator.Properties.Resources._2XOR;
-            this.bXor.Location = new System.Drawing.Point(48, 390);
+            this.bXor.Location = new System.Drawing.Point(48, 373);
             this.bXor.Name = "bXor";
             this.bXor.Size = new System.Drawing.Size(50, 40);
             this.bXor.TabIndex = 24;
@@ -436,7 +437,7 @@ namespace LogicCircuitSimulator
             // bXnor
             // 
             this.bXnor.Image = global::LogicCircuitSimulator.Properties.Resources._2XNOR;
-            this.bXnor.Location = new System.Drawing.Point(104, 390);
+            this.bXnor.Location = new System.Drawing.Point(104, 373);
             this.bXnor.Name = "bXnor";
             this.bXnor.Size = new System.Drawing.Size(50, 40);
             this.bXnor.TabIndex = 25;
@@ -446,7 +447,7 @@ namespace LogicCircuitSimulator
             // bBuf
             // 
             this.bBuf.Image = global::LogicCircuitSimulator.Properties.Resources.BUF;
-            this.bBuf.Location = new System.Drawing.Point(48, 456);
+            this.bBuf.Location = new System.Drawing.Point(48, 439);
             this.bBuf.Name = "bBuf";
             this.bBuf.Size = new System.Drawing.Size(50, 40);
             this.bBuf.TabIndex = 26;
@@ -456,7 +457,7 @@ namespace LogicCircuitSimulator
             // bInv
             // 
             this.bInv.Image = global::LogicCircuitSimulator.Properties.Resources.INV;
-            this.bInv.Location = new System.Drawing.Point(104, 456);
+            this.bInv.Location = new System.Drawing.Point(104, 439);
             this.bInv.Name = "bInv";
             this.bInv.Size = new System.Drawing.Size(50, 40);
             this.bInv.TabIndex = 27;
@@ -466,7 +467,7 @@ namespace LogicCircuitSimulator
             // bInPort
             // 
             this.bInPort.Image = global::LogicCircuitSimulator.Properties.Resources.ITerminal;
-            this.bInPort.Location = new System.Drawing.Point(56, 521);
+            this.bInPort.Location = new System.Drawing.Point(56, 504);
             this.bInPort.Name = "bInPort";
             this.bInPort.Size = new System.Drawing.Size(34, 22);
             this.bInPort.TabIndex = 28;
@@ -476,18 +477,29 @@ namespace LogicCircuitSimulator
             // bOutPort
             // 
             this.bOutPort.Image = global::LogicCircuitSimulator.Properties.Resources.OTerminal;
-            this.bOutPort.Location = new System.Drawing.Point(111, 521);
+            this.bOutPort.Location = new System.Drawing.Point(111, 504);
             this.bOutPort.Name = "bOutPort";
             this.bOutPort.Size = new System.Drawing.Size(34, 22);
             this.bOutPort.TabIndex = 29;
             this.bOutPort.UseVisualStyleBackColor = true;
             this.bOutPort.Click += new System.EventHandler(this.bOutPort_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(48, 541);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 23);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Create connection";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1130, 647);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bOutPort);
             this.Controls.Add(this.bInPort);
             this.Controls.Add(this.bInv);
@@ -572,6 +584,7 @@ namespace LogicCircuitSimulator
         private System.Windows.Forms.Button bInv;
         private System.Windows.Forms.Button bInPort;
         private System.Windows.Forms.Button bOutPort;
+        private System.Windows.Forms.Button button1;
     }
 }
 
