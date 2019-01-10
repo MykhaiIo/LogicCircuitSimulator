@@ -16,10 +16,6 @@ namespace LogicCircuitSimulator
         public MainForm()
         {
             InitializeComponent();
-
-            
-            
-            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -53,15 +49,17 @@ namespace LogicCircuitSimulator
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            GUI.g_graphics = e.Graphics;
+            GUI.g_graphics = panel1.CreateGraphics();
             int w = panel1.Width;
             int h = panel1.Height;
             Pen blackpen = new Pen(Color.Black)
             {
                 Width = 2
             };
+
+            GUI.DrawActiveLine(new PointF(360, 455.5f), new PointF(155.6f, 120.3f)); /// TEST CASE
             Brush whitebrush = new SolidBrush(Color.White);
-            GUI.g_graphics.DrawRectangle(blackpen, 220, 50, w, h);
+            GUI.g_graphics.DrawRectangle(blackpen, 0, 0, w, h);
             //g.FillRectangle(whitebrush, 220, 50, w, h);
             //whitebrush.Dispose();
             blackpen.Dispose();
