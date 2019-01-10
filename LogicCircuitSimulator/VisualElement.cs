@@ -413,6 +413,22 @@ namespace LogicCircuitSimulator
         }
         public class Visual
         {
+            static void Connect(Pin from, Pin to)
+            {
+                if (from.Side != PinSide.OUTPUT)
+                    throw new InvalidPinSideException();
+                if (to.Side != PinSide.INPUT)
+                    throw new InvalidPinSideException();
+
+                from.ConnectedPin = to;
+                to.ConnectedPin = from;
+                visual_connections.Add(from, to);
+                LogicCircuitSimulator.Pin logic_from, logic_to;
+                logic_from = from.Parent.LogicElement.GetPin(from.Side, (byte)from.Index);
+                logic_to = to.Parent.LogicElement.GetPin(to.Side, (byte)to.Index);
+                g_circuit.Connect(logic_from, logic_to);
+            }
+
             public class Pin
             {
                 public Pin(Visual.Element parent, PinSide side, int index)
