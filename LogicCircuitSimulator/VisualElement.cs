@@ -402,7 +402,7 @@ namespace LogicCircuitSimulator
 
             public class FORK : ConnectableImage
             {
-                public override Bitmap Image { get; } = Properties.Resources.Fork3;
+                public override Bitmap Image { get; } = Properties.Resources.Fork4;
                 public override Point[] InputPoints { get; } = { new Point(0, 5) };
                 public override Point[] OutputPoints { get; } = { new Point(5, 0), new Point(10, 5), new Point(5, 10) };
             }
