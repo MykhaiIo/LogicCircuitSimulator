@@ -420,20 +420,29 @@ namespace LogicCircuitSimulator
         }
         public class Visual
         {
-            static void Connect(Pin from, Pin to)
+            public static void Connect(Pin from, Pin to)
             {
                 if (from.Side != PinSide.OUTPUT)
-                    throw new InvalidPinSideException();
+                    throw new InvalidPinSideException("Left pin must be output.");
                 if (to.Side != PinSide.INPUT)
-                    throw new InvalidPinSideException();
+                    throw new InvalidPinSideException("Right pin must be input.");
+                if (visual_connections.ContainsKey(from))
+                    throw new InvalidPinSideException("Left pin already connected.");
+                if (visual_connections.ContainsValue(to))
+                    throw new InvalidPinSideException("Right pin already connected.");
 
                 from.ConnectedPin = to;
                 to.ConnectedPin = from;
+
                 visual_connections.Add(from, to);
+
                 LogicCircuitSimulator.Pin logic_from, logic_to;
                 logic_from = from.Parent.LogicElement.GetPin(from.Side, (byte)from.Index);
                 logic_to = to.Parent.LogicElement.GetPin(to.Side, (byte)to.Index);
+
                 g_circuit.Connect(logic_from, logic_to);
+
+                DrawInactiveConnection(from, to); // TODO: Use U-connection as default in future
             }
 
             public class Pin
