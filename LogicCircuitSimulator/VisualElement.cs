@@ -376,6 +376,13 @@ namespace LogicCircuitSimulator
                 public override Point[] OutputPoints { get; } = { new Point(40, 24) };
             }
 
+            public class BUF : ConnectableImage
+            {
+                public override Bitmap Image { get; } = Properties.Resources.BUF;
+                public override Point[] InputPoints { get; } = { new Point(0, 12) };
+                public override Point[] OutputPoints { get; } = { new Point(40, 12) };
+            }
+
             public class NOT : ConnectableImage
             {
                 public override Bitmap Image { get; } = Properties.Resources.INV;
@@ -485,6 +492,54 @@ namespace LogicCircuitSimulator
                 { }
             }
 
+            public abstract class Terminal : Element
+            {
+                protected Terminal()
+                    : base()
+                { }
+            }
+
+            public class InTerminal : Terminal
+            {
+                public InTerminal()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.InTerminal();
+                    OutputPins.Add(new Visual.Pin(this, PinSide.OUTPUT, 0));
+                    g_circuit.AddElement(logic_element);
+                    image_data = new ConnectableImages.ITERM();
+                    picture_box = new System.Windows.Forms.PictureBox
+                    {
+                        Name = elements.Count.ToString(),
+                        Location = new Point(100, 200),
+                        Size = new Size(20, 5),
+                        Image = image_data.Image
+                    };
+                }
+                public override string Identificator { get => ($"INPUT X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
+            }
+
+            public class OutTerminal : Terminal
+            {
+                public OutTerminal()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.OutTerminal();
+                    InputPins.Add(new Visual.Pin(this, PinSide.INPUT, 0));
+                    g_circuit.AddElement(logic_element);
+                    image_data = new ConnectableImages.OTERM();
+                    picture_box = new System.Windows.Forms.PictureBox
+                    {
+                        Name = elements.Count.ToString(),
+                        Location = new Point(100, 200),
+                        Size = new Size(20, 5),
+                        Image = image_data.Image
+                    };
+                }
+
+                public override string Identificator { get => ($"OUTPUT X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
+            }
+                       
             public abstract class SingleInputGate : Gate
             {
                 protected SingleInputGate()
@@ -637,6 +692,28 @@ namespace LogicCircuitSimulator
                 public override string Identificator { get => ($"XNOR X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
 
+            public class BUF : SingleInputGate
+            {
+                public BUF()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.FORK();
+                    InputPins.Add(new Visual.Pin(this, PinSide.INPUT, 0));
+                    OutputPins.Add(new Visual.Pin(this, PinSide.OUTPUT, 0));
+                    g_circuit.AddElement(logic_element);
+                    image_data = new ConnectableImages.BUF();
+                    picture_box = new System.Windows.Forms.PictureBox
+                    {
+                        Name = elements.Count.ToString(),
+                        Location = new Point(100, 100),
+                        Size = new Size(40, 25),
+                        Image = image_data.Image
+                    };
+                }
+
+                public override string Identificator { get => ($"BUF X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
+            }
+
             public class NOT : SingleInputGate
             {
                 public NOT()
@@ -657,6 +734,29 @@ namespace LogicCircuitSimulator
                 }
 
                 public override string Identificator { get => ($"NOT X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
+            }
+
+            public class FORK : SingleInputGate
+            {
+                public FORK()
+                    : base()
+                {
+                    logic_element = new LogicCircuitSimulator.FORK();
+                    InputPins.Add(new Visual.Pin(this, PinSide.INPUT, 0));
+                    OutputPins.Add(new Visual.Pin(this, PinSide.OUTPUT, 0));
+                    OutputPins.Add(new Visual.Pin(this, PinSide.OUTPUT, 1));
+                    OutputPins.Add(new Visual.Pin(this, PinSide.OUTPUT, 2));
+                    g_circuit.AddElement(logic_element);
+                    image_data = new ConnectableImages.FORK();
+                    picture_box = new System.Windows.Forms.PictureBox
+                    {
+                        Name = elements.Count.ToString(),
+                        Location = new Point(100, 100),
+                        Size = new Size(10, 10),
+                        Image = image_data.Image
+                    };
+                }
+                public override string Identificator { get => ($"NODE X={picture_box.Location.X + picture_box.Size.Width / 2} Y={picture_box.Location.Y + picture_box.Size.Height / 2}"); }
             }
         }
     }

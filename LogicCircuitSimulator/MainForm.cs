@@ -16,10 +16,6 @@ namespace LogicCircuitSimulator
         public MainForm()
         {
             InitializeComponent();
-
-            
-            
-            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -53,15 +49,17 @@ namespace LogicCircuitSimulator
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            GUI.g_graphics = e.Graphics;
+            GUI.g_graphics = panel1.CreateGraphics();
             int w = panel1.Width;
             int h = panel1.Height;
             Pen blackpen = new Pen(Color.Black)
             {
                 Width = 2
             };
+
+            GUI.DrawActiveLine(new PointF(360, 455.5f), new PointF(155.6f, 120.3f)); /// TEST CASE
             Brush whitebrush = new SolidBrush(Color.White);
-            GUI.g_graphics.DrawRectangle(blackpen, 220, 50, w, h);
+            GUI.g_graphics.DrawRectangle(blackpen, 0, 0, w, h);
             //g.FillRectangle(whitebrush, 220, 50, w, h);
             //whitebrush.Dispose();
             blackpen.Dispose();
@@ -331,22 +329,110 @@ namespace LogicCircuitSimulator
 
         private void bBuf_Click(object sender, EventArgs e)
         {
-           
+            var VisBUF = new GUI.Visual.BUF();
+            GUI.AddElement(VisBUF);
+            var pb = VisBUF.PictureBox;
+            if (pb != null)
+            {
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bInv_Click(object sender, EventArgs e)
         {
-            
+            var VisNOT = new GUI.Visual.NOT();
+            GUI.AddElement(VisNOT);
+            var pb = VisNOT.PictureBox;
+            if (pb != null)
+            {
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bInPort_Click(object sender, EventArgs e)
         {
-            
+            var VisInTerm = new GUI.Visual.InTerminal();
+            GUI.AddElement(VisInTerm);
+            var pb = VisInTerm.PictureBox;
+            if (pb != null)
+            {
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
+
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bOutPort_Click(object sender, EventArgs e)
         {
+            var VisInTerm = new GUI.Visual.OutTerminal();
+            GUI.AddElement(VisInTerm);
+            var pb = VisInTerm.PictureBox;
+            if (pb != null)
+            {
+                panel1.Controls.Add(pb);
+            }
+            pb.MouseEnter += PicBox_MouseEnter;
+            pb.MouseLeave += PicBox_MouseLeave;
+            pb.MouseDown += PicBox_MouseDown;
+            pb.MouseUp += PicBox_MouseUp;
+            pb.MouseMove += PicBox_MouseMove;
+            pb.Move += PicPox_Move;
+            //pb.ContextMenuStrip = ContextMenu;
 
+            if (pb.Left < panel1.Left)
+                pb.Left = panel1.Left;
+            if (pb.Right > panel1.Right)
+                pb.Left = (panel1.Right + pb.Width);
+            if (pb.Top < panel1.Top)
+                pb.Top = panel1.Top;
+            if (pb.Bottom > panel1.Bottom)
+                pb.Top = (panel1.Bottom + pb.Height);
         }
 
         private void bClear_Click(object sender, EventArgs e)
