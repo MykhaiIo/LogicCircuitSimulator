@@ -418,7 +418,7 @@ namespace LogicCircuitSimulator
                 public Pin(Visual.Element parent, PinSide side, int index)
                 {
                     Parent = parent;
-                    PinSide = side;
+                    Side = side;
                     Index = index;
                 }
 
@@ -437,13 +437,13 @@ namespace LogicCircuitSimulator
                 {
                     get
                     {
-                        return new Point(Parent.PictureBox.Location.X + GetShift(PinSide, Index).X,
-                        Parent.PictureBox.Location.Y + GetShift(PinSide, Index).Y);
+                        return new Point(Parent.PictureBox.Location.X + GetShift(Side, Index).X,
+                        Parent.PictureBox.Location.Y + GetShift(Side, Index).Y);
                     }
                 }
 
                 public int Index { get; set; }
-                public PinSide PinSide { get; set; }
+                public PinSide Side { get; set; }
                 public Visual.Pin ConnectedPin { get; set; }
                 public Visual.Element Parent { get; private set; }
             }
