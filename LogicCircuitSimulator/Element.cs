@@ -76,6 +76,7 @@ namespace LogicCircuitSimulator
         {
             input_pins.Clear();
             output_pins.Add(new Pin(PinSide.OUTPUT));
+            SimulationInputValue = new Logic(LogicValue.UNINITIALIZED);
         }
 
         public override void Functionality()
