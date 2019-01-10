@@ -463,5 +463,13 @@ namespace LogicCircuitSimulator
                 frm2.Close();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var dlg = new EditPortDialog();
+            DialogResult dr = dlg.ShowDialog(this);
+            if (dr == DialogResult.OK)
+                dlg.Close();
+        }
     }
 }

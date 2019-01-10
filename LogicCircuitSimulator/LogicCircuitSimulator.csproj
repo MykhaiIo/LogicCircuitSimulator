@@ -52,12 +52,6 @@
     <Compile Include="CreateConnectionDialog.Designer.cs">
       <DependentUpon>CreateConnectionDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreatePortDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreatePortDialog.Designer.cs">
-      <DependentUpon>CreatePortDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="EditGateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +59,12 @@
       <DependentUpon>EditGateDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Circuit.cs" />
+    <Compile Include="EditPortDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPortDialog.Designer.cs">
+      <DependentUpon>EditPortDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Element.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Logic.cs" />
@@ -93,11 +93,11 @@
     <EmbeddedResource Include="CreateConnectionDialog.resx">
       <DependentUpon>CreateConnectionDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreatePortDialog.resx">
-      <DependentUpon>CreatePortDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EditGateDialog.resx">
       <DependentUpon>EditGateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPortDialog.resx">
+      <DependentUpon>EditPortDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
