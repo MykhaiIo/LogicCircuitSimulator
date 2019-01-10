@@ -13,7 +13,6 @@ namespace LogicCircuitSimulator
     public partial class EditPortDialog : Form
     {
         List<InTerminal> in_terminals = new List<InTerminal>();
-
         public EditPortDialog()
         {
             InitializeComponent();
