@@ -16,6 +16,7 @@ namespace LogicCircuitSimulator
         public MainForm()
         {
             InitializeComponent();
+            GUI.g_graphics = panel1.CreateGraphics();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -39,8 +40,6 @@ namespace LogicCircuitSimulator
             UnitTest.TestCase_8NandGateSimulation();
         }
 
-        
-
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             xPos.Text = "X: " + e.Location.X;
@@ -56,13 +55,10 @@ namespace LogicCircuitSimulator
             {
                 Width = 2
             };
-
-            GUI.DrawActiveLine(new PointF(360, 455.5f), new PointF(155.6f, 120.3f)); /// TEST CASE
-            Brush whitebrush = new SolidBrush(Color.White);
             
+            Brush whitebrush = new SolidBrush(Color.White);
             GUI.g_graphics.DrawRectangle(blackpen, 0, 0, w, h);
             blackpen.Dispose();
-            GUI.g_graphics.Dispose();
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -443,6 +439,8 @@ namespace LogicCircuitSimulator
                         ) == DialogResult.OK)
             {
                 panel1.Controls.Clear();
+                GUI.elements.Clear();
+                GUI.visual_connections.Clear();
             }
         }
 
