@@ -59,9 +59,8 @@ namespace LogicCircuitSimulator
 
             GUI.DrawActiveLine(new PointF(360, 455.5f), new PointF(155.6f, 120.3f)); /// TEST CASE
             Brush whitebrush = new SolidBrush(Color.White);
+            
             GUI.g_graphics.DrawRectangle(blackpen, 0, 0, w, h);
-            //g.FillRectangle(whitebrush, 220, 50, w, h);
-            //whitebrush.Dispose();
             blackpen.Dispose();
             GUI.g_graphics.Dispose();
         }
@@ -465,6 +464,14 @@ namespace LogicCircuitSimulator
                 //textBox1.Text = frm2.getText();
                 frm2.Close();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var dlg = new EditPortDialog();
+            DialogResult dr = dlg.ShowDialog(this);
+            if (dr == DialogResult.OK)
+                dlg.Close();
         }
     }
 }

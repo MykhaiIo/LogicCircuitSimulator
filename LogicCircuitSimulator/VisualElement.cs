@@ -37,6 +37,11 @@ namespace LogicCircuitSimulator
             g_graphics.DrawLine(Pens.Black, p1, p2);
         }
 
+        public static void DrawUninitializedLine(PointF p1, PointF p2)
+        {
+            g_graphics.DrawLine(Pens.Gray, p1, p2);
+        }
+
         public static void DrawActiveConnection(Visual.Pin from, Visual.Pin to)
         {
             GUI.DrawActiveLine(from.Coords, to.Coords);
@@ -45,6 +50,11 @@ namespace LogicCircuitSimulator
         public static void DrawInactiveConnection(Visual.Pin from, Visual.Pin to)
         {
             GUI.DrawInactiveLine(from.Coords, to.Coords);
+        }
+
+        public static void DrawUninitializedConnection(Visual.Pin from, Visual.Pin to)
+        {
+            GUI.DrawUninitializedLine(from.Coords, to.Coords);
         }
 
         public class ConnectableImages

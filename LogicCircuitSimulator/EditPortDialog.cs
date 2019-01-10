@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace LogicCircuitSimulator
 {
-    public partial class CreatePortDialog : Form
+    public partial class EditPortDialog : Form
     {
-        public CreatePortDialog()
+        public EditPortDialog()
         {
             InitializeComponent();
+            foreach (var elem in GUI.elements)
+            {
+                listBox1.Items.Add(elem.Identificator);
+            }
         }
     }
 }
